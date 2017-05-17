@@ -3,19 +3,19 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Lihuazhidao Blog</title>
+  <title>Byeage Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="博客">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Lihuazhidao Blog">
+<meta property="og:title" content="Byeage Blog">
 <meta property="og:url" content="http://yoursite.com/index.html">
-<meta property="og:site_name" content="Lihuazhidao Blog">
+<meta property="og:site_name" content="Byeage Blog">
 <meta property="og:description" content="博客">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Lihuazhidao Blog">
+<meta name="twitter:title" content="Byeage Blog">
 <meta name="twitter:description" content="博客">
   
-    <link rel="alternate" href="/atom.xml" title="Lihuazhidao Blog" type="application/atom+xml">
+    <link rel="alternate" href="/atom.xml" title="Byeage Blog" type="application/atom+xml">
   
   
     <link rel="icon" href="/favicon.png">
@@ -36,7 +36,7 @@
   <div id="header-outer" class="outer">
     <div id="header-title" class="inner">
       <h1 id="logo-wrap">
-        <a href="/" id="logo">Lihuazhidao Blog</a>
+        <a href="/" id="logo">Byeage Blog</a>
       </h1>
       
         <h2 id="subtitle-wrap">
@@ -68,6 +68,97 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-Express-常用中间件" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/05/17/Express-常用中间件/" class="article-date">
+  <time datetime="2017-05-17T09:52:01.000Z" itemprop="datePublished">2017-05-17</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/05/17/Express-常用中间件/">Express 常用中间件</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="Express-常用中间件"><a href="#Express-常用中间件" class="headerlink" title="Express 常用中间件"></a>Express 常用中间件</h3><hr>
+<ul>
+<li>body-parser </li>
+<li>cookie-parser</li>
+<li>compression</li>
+<li>Helmet</li>
+<li>connect-assets</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/05/17/Express-常用中间件/" data-id="cj2suuffr00017avepld0nuck" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-express-middleware" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/05/17/express-middleware/" class="article-date">
+  <time datetime="2017-05-17T08:15:51.000Z" itemprop="datePublished">2017-05-17</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/05/17/express-middleware/">express middleware</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>关于Express 中间件执行的一张很好理解的图<br><img src="/2017/05/17/express-middleware/node-middleware.png" alt="express-middleware"></p>
+<ol>
+<li>在resquest 和 response 之间处理一些任务</li>
+<li>middleware stack 是一个元素为函数的数组</li>
+<li>在每一个middleware 的中间件函数中都可以修改resquest和response ，在中间件函数中需要对request 作出响应，可以是第一个也可以是最后一个，如果没有响应，服务就会挂起</li>
+<li>利用中间件可以将应用分割成一个个组件，便于管理组合</li>
+<li>在express 中你可以使用app.use 将中间件函数应用到middleware stack 中</li>
+<li>在middleware function 中需要完成resquest的响应或者将request的响应交给下一个middleware function处理，直到完成对resquest的响应</li>
+</ol>
+<hr>
+<h3 id="error-hanlder-middleware"><a href="#error-hanlder-middleware" class="headerlink" title="error-hanlder middleware"></a>error-hanlder middleware</h3><p>有两种中间件<br> . 负责任务处理<br> . 负责错误处理<br> 在中间件里未出现错误，则跳过error-handler middleware，直接交给下一个middleware<br> <img src="/2017/05/17/express-middleware/error-handler-1.png" alt="error-handler"><br> 在中间件里出现错误，则交给error-handler middleware， 结束响应<br> <img src="/2017/05/17/express-middleware/error-handler-2.png" alt="error-handler"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/05/17/express-middleware/" data-id="cj2suuff500007aveynduohsv" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-Welcome" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2017/05/16/Welcome/" class="article-date">
@@ -94,7 +185,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/05/16/Welcome/" data-id="cj2r778ug0001s0fy5sleet4w" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/05/16/Welcome/" data-id="cj2suufft00027avesizhzk7n" class="article-share-link">Share</a>
       
       
     </footer>
@@ -139,7 +230,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/05/16/hello-world/" data-id="cj2r6jo5a0000aifycy778m8q" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/05/16/hello-world/" data-id="cj2suuffw00037avejuso0d4a" class="article-share-link">Share</a>
       
       
     </footer>
@@ -177,6 +268,14 @@
     <h3 class="widget-title">最新文章</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2017/05/17/Express-常用中间件/">Express 常用中间件</a>
+          </li>
+        
+          <li>
+            <a href="/2017/05/17/express-middleware/">express middleware</a>
+          </li>
         
           <li>
             <a href="/2017/05/16/Welcome/">welcome</a>

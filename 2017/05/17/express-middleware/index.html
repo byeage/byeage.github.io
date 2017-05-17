@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>express middleware | Byeage Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="关于Express 中间件执行的一张很好理解的图  在resquest 和 response 之间处理一些任务 middleware stack 是一个元素为函数的数组 在每一个middleware 的中间件函数中都可以修改resquest和response ，在中间件函数中需要对request 作出响应，可以是第一个也可以是最后一个，如果没有响应，服务就会挂起 利用中间件可以将应用分割成一个个组">
+<meta property="og:type" content="article">
+<meta property="og:title" content="express middleware">
+<meta property="og:url" content="http://yoursite.com/2017/05/17/express-middleware/index.html">
+<meta property="og:site_name" content="Byeage Blog">
+<meta property="og:description" content="关于Express 中间件执行的一张很好理解的图  在resquest 和 response 之间处理一些任务 middleware stack 是一个元素为函数的数组 在每一个middleware 的中间件函数中都可以修改resquest和response ，在中间件函数中需要对request 作出响应，可以是第一个也可以是最后一个，如果没有响应，服务就会挂起 利用中间件可以将应用分割成一个个组">
+<meta property="og:image" content="http://yoursite.com/2017/05/17/express-middleware/node-middleware.png">
+<meta property="og:image" content="http://yoursite.com/2017/05/17/express-middleware/error-handler-1.png">
+<meta property="og:image" content="http://yoursite.com/2017/05/17/express-middleware/error-handler-2.png">
+<meta property="og:updated_time" content="2017-05-17T09:46:30.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="express middleware">
+<meta name="twitter:description" content="关于Express 中间件执行的一张很好理解的图  在resquest 和 response 之间处理一些任务 middleware stack 是一个元素为函数的数组 在每一个middleware 的中间件函数中都可以修改resquest和response ，在中间件函数中需要对request 作出响应，可以是第一个也可以是最后一个，如果没有响应，服务就会挂起 利用中间件可以将应用分割成一个个组">
+<meta name="twitter:image" content="http://yoursite.com/2017/05/17/express-middleware/node-middleware.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Byeage Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Byeage Blog</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">白痴总得加把劲</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-express-middleware" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/05/17/express-middleware/" class="article-date">
+  <time datetime="2017-05-17T08:15:51.000Z" itemprop="datePublished">2017-05-17</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      express middleware
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>关于Express 中间件执行的一张很好理解的图<br><img src="/2017/05/17/express-middleware/node-middleware.png" alt="express-middleware"></p>
+<ol>
+<li>在resquest 和 response 之间处理一些任务</li>
+<li>middleware stack 是一个元素为函数的数组</li>
+<li>在每一个middleware 的中间件函数中都可以修改resquest和response ，在中间件函数中需要对request 作出响应，可以是第一个也可以是最后一个，如果没有响应，服务就会挂起</li>
+<li>利用中间件可以将应用分割成一个个组件，便于管理组合</li>
+<li>在express 中你可以使用app.use 将中间件函数应用到middleware stack 中</li>
+<li>在middleware function 中需要完成resquest的响应或者将request的响应交给下一个middleware function处理，直到完成对resquest的响应</li>
+</ol>
+<hr>
+<h3 id="error-hanlder-middleware"><a href="#error-hanlder-middleware" class="headerlink" title="error-hanlder middleware"></a>error-hanlder middleware</h3><p>有两种中间件<br> . 负责任务处理<br> . 负责错误处理<br> 在中间件里未出现错误，则跳过error-handler middleware，直接交给下一个middleware<br> <img src="/2017/05/17/express-middleware/error-handler-1.png" alt="error-handler"><br> 在中间件里出现错误，则交给error-handler middleware， 结束响应<br> <img src="/2017/05/17/express-middleware/error-handler-2.png" alt="error-handler"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/05/17/express-middleware/" data-id="cj2suuff500007aveynduohsv" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/05/17/Express-常用中间件/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Express 常用中间件
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/05/16/Welcome/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">welcome</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">五月 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/05/17/Express-常用中间件/">Express 常用中间件</a>
+          </li>
+        
+          <li>
+            <a href="/2017/05/17/express-middleware/">express middleware</a>
+          </li>
+        
+          <li>
+            <a href="/2017/05/16/Welcome/">welcome</a>
+          </li>
+        
+          <li>
+            <a href="/2017/05/16/hello-world/">Hello World</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 madao<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>
