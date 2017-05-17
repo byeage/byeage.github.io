@@ -68,6 +68,80 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-express-router" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/05/17/express-router/" class="article-date">
+  <time datetime="2017-05-17T15:08:15.000Z" itemprop="datePublished">2017-05-17</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/05/17/express-router/">express-router</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="Express-simple"><a href="#Express-simple" class="headerlink" title="Express simple"></a>Express simple</h3><pre><code>app.get(&quot;/users&quot;, function(request, response) {
+response.send(&quot;Users&quot;);
+});
+</code></pre><h3 id="Express-router-带参数"><a href="#Express-router-带参数" class="headerlink" title="Express router 带参数"></a>Express router 带参数</h3><pre><code>app.get(&quot;/users/:userid&quot;, function(req, res) {
+    var userId = parseInt(req.params.userid, 10);
+    // ...
+}
+</code></pre><h3 id="Express-router-用正则匹配，更精细的控制路由"><a href="#Express-router-用正则匹配，更精细的控制路由" class="headerlink" title="Express router 用正则匹配，更精细的控制路由"></a>Express router 用正则匹配，更精细的控制路由</h3><pre><code>app.get(/^\/users\/(\d+)$/, function(req, res) {
+    var userId = parseInt(req.params[0], 10);
+    // ...
+});
+</code></pre><p><strong><em>users/</em></strong> 后面带的参数必须为数字</p>
+<pre><code>app.get(/^\/users\/(\d+)-(\d+)$/, function(req, res) {
+    var startId = parseInt(req.params[0], 10);
+    var endId = parseInt(req.params[1], 10);
+    // ...
+});
+</code></pre><p>匹配路由 <strong><em>/users/100-500</em></strong></p>
+<h3 id="Express-router-获取查询参数"><a href="#Express-router-获取查询参数" class="headerlink" title="Express router  获取查询参数"></a>Express router  获取查询参数</h3><p><strong><em>／search?keywords=nodejs</em></strong> 通过req.query[‘key’] 获取查询参数</p>
+<pre><code>app.get(&quot;/search&quot;, function(req, res) {
+   var keywords = req.query.keywords 
+// ...
+});
+</code></pre><hr>
+<h3 id="使用router-分割应用"><a href="#使用router-分割应用" class="headerlink" title="使用router 分割应用"></a>使用router 分割应用</h3><blockquote>
+<p>A router is an isolated instance of middleware and routes. Routers can be<br>thought of as “mini” applications only capable of performing middleware<br>and routing. Every express application has a built-in app router.</p>
+</blockquote>
+<p>Routers 可以表现的像中间件，通过.use() 组合到应用中。简而言之，router 将原本庞大的应用分割成一个个mini应用，<br>然后一个个mini应用可以通过类似中间件的方式，将它们拼凑起来，组成一个大型应用。其实router 就是一个基础的middleware。</p>
+<h4 id="子路由"><a href="#子路由" class="headerlink" title="子路由"></a>子路由</h4><pre><code>var express = require(&quot;express&quot;);
+var api = express.Router();
+api.use(function(req, res, next) {
+    // doing something
+    next();
+});
+api.get(&quot;/users&quot;, function(req, res) { /* ... */ });
+api.post(&quot;/user&quot;, function(req, res) { /* ... */ });
+module.exports = api;
+</code></pre><p> 这看起来就像一个mini的应用，他支持中间件和路由，但他不能单独运行，只能插入到主应用当中去，通过这种方式，就能将应用分割成各个部分了</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/05/17/express-router/" data-id="cj2t6aqus0003ztpkfdpjcn0a" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-Express-常用中间件" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2017/05/17/Express-常用中间件/" class="article-date">
@@ -102,7 +176,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/05/17/Express-常用中间件/" data-id="cj2suuffr00017avepld0nuck" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/05/17/Express-常用中间件/" data-id="cj2t6aqto0000ztpkgncljvm4" class="article-share-link">Share</a>
       
       
     </footer>
@@ -149,7 +223,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/05/17/express-middleware/" data-id="cj2suuff500007aveynduohsv" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/05/17/express-middleware/" data-id="cj2t6aquo0002ztpkw26usgum" class="article-share-link">Share</a>
       
       
     </footer>
@@ -185,7 +259,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/05/16/Welcome/" data-id="cj2suufft00027avesizhzk7n" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/05/16/Welcome/" data-id="cj2t6aqum0001ztpki1ohcqcn" class="article-share-link">Share</a>
       
       
     </footer>
@@ -230,7 +304,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/05/16/hello-world/" data-id="cj2suuffw00037avejuso0d4a" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/05/16/hello-world/" data-id="cj2t6aquv0004ztpkyod1th8u" class="article-share-link">Share</a>
       
       
     </footer>
@@ -268,6 +342,10 @@
     <h3 class="widget-title">最新文章</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2017/05/17/express-router/">express-router</a>
+          </li>
         
           <li>
             <a href="/2017/05/17/Express-常用中间件/">Express 常用中间件</a>

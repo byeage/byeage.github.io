@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>express-router | Byeage Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Express simpleapp.get(&amp;quot;/users&amp;quot;, function(request, response) { response.send(&amp;quot;Users&amp;quot;); }); Express router 带参数app.get(&amp;quot;/users/:userid&amp;quot;, function(req, res) {     var userId">
+<meta property="og:type" content="article">
+<meta property="og:title" content="express-router">
+<meta property="og:url" content="http://yoursite.com/2017/05/17/express-router/index.html">
+<meta property="og:site_name" content="Byeage Blog">
+<meta property="og:description" content="Express simpleapp.get(&amp;quot;/users&amp;quot;, function(request, response) { response.send(&amp;quot;Users&amp;quot;); }); Express router 带参数app.get(&amp;quot;/users/:userid&amp;quot;, function(req, res) {     var userId">
+<meta property="og:updated_time" content="2017-05-17T15:51:05.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="express-router">
+<meta name="twitter:description" content="Express simpleapp.get(&amp;quot;/users&amp;quot;, function(request, response) { response.send(&amp;quot;Users&amp;quot;); }); Express router 带参数app.get(&amp;quot;/users/:userid&amp;quot;, function(req, res) {     var userId">
+  
+    <link rel="alternate" href="/atom.xml" title="Byeage Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Byeage Blog</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">白痴总得加把劲</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-express-router" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/05/17/express-router/" class="article-date">
+  <time datetime="2017-05-17T15:08:15.000Z" itemprop="datePublished">2017-05-17</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      express-router
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="Express-simple"><a href="#Express-simple" class="headerlink" title="Express simple"></a>Express simple</h3><pre><code>app.get(&quot;/users&quot;, function(request, response) {
+response.send(&quot;Users&quot;);
+});
+</code></pre><h3 id="Express-router-带参数"><a href="#Express-router-带参数" class="headerlink" title="Express router 带参数"></a>Express router 带参数</h3><pre><code>app.get(&quot;/users/:userid&quot;, function(req, res) {
+    var userId = parseInt(req.params.userid, 10);
+    // ...
+}
+</code></pre><h3 id="Express-router-用正则匹配，更精细的控制路由"><a href="#Express-router-用正则匹配，更精细的控制路由" class="headerlink" title="Express router 用正则匹配，更精细的控制路由"></a>Express router 用正则匹配，更精细的控制路由</h3><pre><code>app.get(/^\/users\/(\d+)$/, function(req, res) {
+    var userId = parseInt(req.params[0], 10);
+    // ...
+});
+</code></pre><p><strong><em>users/</em></strong> 后面带的参数必须为数字</p>
+<pre><code>app.get(/^\/users\/(\d+)-(\d+)$/, function(req, res) {
+    var startId = parseInt(req.params[0], 10);
+    var endId = parseInt(req.params[1], 10);
+    // ...
+});
+</code></pre><p>匹配路由 <strong><em>/users/100-500</em></strong></p>
+<h3 id="Express-router-获取查询参数"><a href="#Express-router-获取查询参数" class="headerlink" title="Express router  获取查询参数"></a>Express router  获取查询参数</h3><p><strong><em>／search?keywords=nodejs</em></strong> 通过req.query[‘key’] 获取查询参数</p>
+<pre><code>app.get(&quot;/search&quot;, function(req, res) {
+   var keywords = req.query.keywords 
+// ...
+});
+</code></pre><hr>
+<h3 id="使用router-分割应用"><a href="#使用router-分割应用" class="headerlink" title="使用router 分割应用"></a>使用router 分割应用</h3><blockquote>
+<p>A router is an isolated instance of middleware and routes. Routers can be<br>thought of as “mini” applications only capable of performing middleware<br>and routing. Every express application has a built-in app router.</p>
+</blockquote>
+<p>Routers 可以表现的像中间件，通过.use() 组合到应用中。简而言之，router 将原本庞大的应用分割成一个个mini应用，<br>然后一个个mini应用可以通过类似中间件的方式，将它们拼凑起来，组成一个大型应用。其实router 就是一个基础的middleware。</p>
+<h4 id="子路由"><a href="#子路由" class="headerlink" title="子路由"></a>子路由</h4><pre><code>var express = require(&quot;express&quot;);
+var api = express.Router();
+api.use(function(req, res, next) {
+    // doing something
+    next();
+});
+api.get(&quot;/users&quot;, function(req, res) { /* ... */ });
+api.post(&quot;/user&quot;, function(req, res) { /* ... */ });
+module.exports = api;
+</code></pre><p> 这看起来就像一个mini的应用，他支持中间件和路由，但他不能单独运行，只能插入到主应用当中去，通过这种方式，就能将应用分割成各个部分了</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/05/17/express-router/" data-id="cj2t6aqus0003ztpkfdpjcn0a" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2017/05/17/Express-常用中间件/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Express 常用中间件</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">五月 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/05/17/express-router/">express-router</a>
+          </li>
+        
+          <li>
+            <a href="/2017/05/17/Express-常用中间件/">Express 常用中间件</a>
+          </li>
+        
+          <li>
+            <a href="/2017/05/17/express-middleware/">express middleware</a>
+          </li>
+        
+          <li>
+            <a href="/2017/05/16/Welcome/">welcome</a>
+          </li>
+        
+          <li>
+            <a href="/2017/05/16/hello-world/">Hello World</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 madao<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>
