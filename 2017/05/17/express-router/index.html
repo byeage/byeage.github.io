@@ -11,7 +11,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/05/17/express-router/index.html">
 <meta property="og:site_name" content="Byeage Blog">
 <meta property="og:description" content="Express simpleapp.get(&amp;quot;/users&amp;quot;, function(request, response) { response.send(&amp;quot;Users&amp;quot;); }); Express router 带参数app.get(&amp;quot;/users/:userid&amp;quot;, function(req, res) {     var userId">
-<meta property="og:updated_time" content="2017-05-17T15:51:05.000Z">
+<meta property="og:updated_time" content="2017-05-18T01:57:46.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="express-router">
 <meta name="twitter:description" content="Express simpleapp.get(&amp;quot;/users&amp;quot;, function(request, response) { response.send(&amp;quot;Users&amp;quot;); }); Express router 带参数app.get(&amp;quot;/users/:userid&amp;quot;, function(req, res) {     var userId">
@@ -127,11 +127,28 @@ api.get(&quot;/users&quot;, function(req, res) { /* ... */ });
 api.post(&quot;/user&quot;, function(req, res) { /* ... */ });
 module.exports = api;
 </code></pre><p> 这看起来就像一个mini的应用，他支持中间件和路由，但他不能单独运行，只能插入到主应用当中去，通过这种方式，就能将应用分割成各个部分了</p>
-
+<hr>
+<h3 id="express-static-中间件"><a href="#express-static-中间件" class="headerlink" title="express.static 中间件"></a>express.static 中间件</h3><pre><code>var publicPath = path.resolve(__dirname, &quot;public&quot;);
+app.use(express.static(publicPath));
+</code></pre><p>设置静态文件夹，path.resolve 支持跨平台的路径解析。默认静态文件夹设置在网站的根目录，然饿你也可以指定静态文件夹的位置。幸运的是Expres中间件可以指定mount的位置，以为着中间件只在制定的位置做出响应。</p>
+<blockquote>
+<p>Note that this can be done for any middleware, not only the static file middleware.</p>
+</blockquote>
+<pre><code>var publicPath = path.resolve(__dirname, &quot;public&quot;);
+app.use(&apos;/admin&apos;,express.static(publicPath));
+</code></pre><p>使用多个静态文件夹 ，because express.static is middleware, you can just apply it multiple times</p>
+<pre><code>var publicPath = path.resolve(__dirname, &quot;public&quot;);
+var userUploadsPath = path.resolve(__dirname, &quot;user_uploads&quot;);
+app.use(express.static(publicPath));
+app.use(express.static(userUploadsPath));
+</code></pre><p> 因为指定了多个静态文件夹，请求会在这多个文件夹里寻找匹配的资源，找到第一个之后即结束了响应，如果多个文件夹里有重名的资源，就有可能返回错误的资源。所以当有多个静态文件夹时，一般可以通过指定路径的方式来避免冲突。</p>
+<pre><code>app.use(&quot;/public&quot;, express.static(publicPath));
+app.use(&quot;/uploads&quot;, express.static(userUploadsPath));    
+</code></pre>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/05/17/express-router/" data-id="cj2t6aqus0003ztpkfdpjcn0a" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/05/17/express-router/" data-id="cj2tro4s100028nfycmhu7a9x" class="article-share-link">Share</a>
       
       
     </footer>
