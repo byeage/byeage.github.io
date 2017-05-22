@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>test unit | Byeage Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="测试可以分成几类，单元测试，集成测试 TDD（测试驱动开发）直白的说就是先写测试用例，再写代码，直到测试通过  代码不出错一般是不正常的（共识）。测试一般指是自动测试的简称，运行测试代码来验证自己写的代码 进行代码测试的好处  增强对自己代码的信任度，（为好找借口推脱责任增强自信心） 😀 当你修改、重构代码时，不需要人工再去验证重构完后的代码有没有问题 验证你的代码是正常可行的  Test-d">
+<meta property="og:type" content="article">
+<meta property="og:title" content="test unit">
+<meta property="og:url" content="http://yoursite.com/2017/05/19/test-unit/index.html">
+<meta property="og:site_name" content="Byeage Blog">
+<meta property="og:description" content="测试可以分成几类，单元测试，集成测试 TDD（测试驱动开发）直白的说就是先写测试用例，再写代码，直到测试通过  代码不出错一般是不正常的（共识）。测试一般指是自动测试的简称，运行测试代码来验证自己写的代码 进行代码测试的好处  增强对自己代码的信任度，（为好找借口推脱责任增强自信心） 😀 当你修改、重构代码时，不需要人工再去验证重构完后的代码有没有问题 验证你的代码是正常可行的  Test-d">
+<meta property="og:image" content="http://yoursite.com/2017/05/19/test-unit/tdd.png">
+<meta property="og:image" content="http://yoursite.com/2017/05/19/test-unit/structure.png">
+<meta property="og:updated_time" content="2017-05-22T10:02:02.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="test unit">
+<meta name="twitter:description" content="测试可以分成几类，单元测试，集成测试 TDD（测试驱动开发）直白的说就是先写测试用例，再写代码，直到测试通过  代码不出错一般是不正常的（共识）。测试一般指是自动测试的简称，运行测试代码来验证自己写的代码 进行代码测试的好处  增强对自己代码的信任度，（为好找借口推脱责任增强自信心） 😀 当你修改、重构代码时，不需要人工再去验证重构完后的代码有没有问题 验证你的代码是正常可行的  Test-d">
+<meta name="twitter:image" content="http://yoursite.com/2017/05/19/test-unit/tdd.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Byeage Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Byeage Blog</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">白痴总得加把劲</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-test-unit" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/05/19/test-unit/" class="article-date">
+  <time datetime="2017-05-19T02:58:01.000Z" itemprop="datePublished">2017-05-19</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      test unit
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ul>
+<li>测试可以分成几类，单元测试，集成测试</li>
+<li>TDD（测试驱动开发）直白的说就是先写测试用例，再写代码，直到测试通过</li>
+</ul>
+<p>代码不出错一般是不正常的（共识）。测试一般指是自动测试的简称，运行测试代码来验证自己写的代码</p>
+<p>进行代码测试的好处</p>
+<ul>
+<li>增强对自己代码的信任度，（为好找借口推脱责任增强自信心） 😀</li>
+<li>当你修改、重构代码时，不需要人工再去验证重构完后的代码有没有问题</li>
+<li>验证你的代码是正常可行的</li>
+</ul>
+<h3 id="Test-driven-development-TDD"><a href="#Test-driven-development-TDD" class="headerlink" title="Test-driven development TDD"></a>Test-driven development TDD</h3><p>TDD 测试的三个流程<br><img src="/2017/05/19/test-unit/tdd.png" alt="TDD"></p>
+<ol>
+<li>red Step 在你写真实的代码之前，先写测试用例的代码。当然写完之后的测试用例都是通不过的</li>
+<li>green step 在完测试用例之后开始写你自己真实的代码，过程中，测试用例会一个个的通过，由red 状态转成 red 状态，一旦通过所有测试用例，就跳转到了step 3</li>
+<li>refactor step 重构优化阶段， 可以放纵的重构，反正由测试代码帮你验证通过与否</li>
+<li>repeat process  添加新的测试用例，重复上述步骤</li>
+</ol>
+<p>常用测试工具 <strong><em>Mocha</em></strong> <strong><em>chai</em></strong> <strong><em>supertest</em></strong> <strong><em>cheerio</em></strong></p>
+<p><img src="/2017/05/19/test-unit/structure.png" alt="structure"></p>
+<h3 id="capitalize-js"><a href="#capitalize-js" class="headerlink" title="capitalize.js"></a>capitalize.js</h3><pre><code>function capitalize(str) {
+    var firstLetter = str.charAt(0).toUpperCase();
+    var rest = str.slice(1).toLowerCase();
+    return firstLetter + rest
+}
+
+module.exports = capitalize;
+</code></pre><hr>
+<h3 id="test-capitalize-js"><a href="#test-capitalize-js" class="headerlink" title="/test/capitalize.js"></a>/test/capitalize.js</h3><pre><code>var capitialize = require(&apos;../capitalize&apos;);
+var chai = require(&quot;chai&quot;);
+var expect = chai.expect;
+
+describe(&quot;capitalize&quot;, function() {
+    it(&quot;capitializes single words&quot;, function() {
+        expect(capitialize(&quot;express&quot;)).to.equal(&quot;Express&quot;);
+        expect(capitialize(&quot;cats&quot;)).to.equal(&quot;Cats&quot;);
+    })
+
+    it(&quot;makes the rest of the string lowercase&quot;, function(){
+        expect(capitialize(&quot;javaScript&quot;)).to.equal(&quot;Javascript&quot;);
+    })
+    it(&quot;leaves empty strings alone&quot;, function () {
+        expect(capitialize(&quot;&quot;)).to.equal(&quot;&quot;);
+    })
+    it(&quot;throws an error if passed a number&quot;, function() {
+        expect(function() {
+            capitialize(123)
+        }).to.throw(Error)
+    })
+    // 反向测试
+    it(&quot;changes the value&quot;, function() {
+        expect(capitialize(&quot;foo&quot;)).not.to.equal(&quot;foo&quot;);
+    })
+})
+</code></pre><hr>
+<h3 id="user-js"><a href="#user-js" class="headerlink" title="user.js"></a>user.js</h3><pre><code>function User(params) {
+    this.firstName = params.firstName || &apos;&apos;;
+    this.lastName = params.lastName || &apos;&apos;;
+    this.birthDay = params.birthday || &apos;&apos;;
+}
+
+User.prototype.getName = function() {
+    return this.firstName + &apos; &apos; + this.lastName
+}
+User.prototype.getAge = function() {
+    return new Date() - this.birthDay;
+}
+
+
+module.exports = User;
+</code></pre><hr>
+<h3 id="test-user-js"><a href="#test-user-js" class="headerlink" title="/test/user.js"></a>/test/user.js</h3><pre><code>var User = require(&quot;../user&quot;);
+var chai = require(&quot;chai&quot;)
+var expect = chai.expect;
+
+
+describe(&quot;User&quot;, function(){
+
+// 在测试之前先执行一段代码
+var user;
+beforeEach(function() {
+    user = new User({
+        firstName: &quot;Douglas&quot;,
+        lastName: &quot;Reynholm&quot;,
+        birthDay: new Date(1975,10,2)
+    })
+});
+
+it(&quot;can extract its name&quot;, function() {
+    expect(user.getName()).to.equal(&quot;Douglas Reynholm&quot;)
+})
+    it(&quot;can get its&apos;s age in milliseconds&quot;, function() {
+    var now = new Date();
+    expect(user.getAge()).to.equal(now - user.birthDay);
+    });
+});
+</code></pre><hr>
+<h3 id="test-txt-js"><a href="#test-txt-js" class="headerlink" title="/test/txt.js"></a>/test/txt.js</h3><pre><code>var app = require(&quot;../app&quot;)
+var supertest = require(&quot;supertest&quot;);
+
+describe(&quot;plain text response&quot;, function() {
+    var request;
+
+    beforeEach(function() {
+        request = supertest(app)
+            .get(&quot;/&quot;)
+            .set(&quot;User-Agent&quot;, &quot;my cool browser&quot;)
+            .set(&quot;Accept&quot;, &quot;text/plain&quot;)
+    })
+
+    it(&quot;plain text response&quot;, function(done) {
+        request
+            .expect(&quot;Content-type&quot;,/text\/plain/)
+            .expect(200)
+            .end(done)
+    });
+
+    it(&quot;returns your User Agent&quot;, function(done) {
+        request
+            .expect(function(res) {
+                if(res.text!== &quot;my cool browser&quot;) {
+                    throw new Error(&quot;Response does not container User Agent&quot;)
+                }
+            })
+            .end(done)
+    });
+})
+</code></pre><hr>
+<h3 id="html-js"><a href="#html-js" class="headerlink" title="html.js"></a>html.js</h3><pre><code>var app = require(&quot;../app&quot;);
+var supertest = require(&quot;supertest&quot;);
+var cheerio = require(&quot;cheerio&quot;);
+
+describe(&quot;html response&quot;, function() {
+var request;
+beforeEach(function() {
+    request = supertest(app)
+        .get(&quot;/&quot;)
+        .set(&quot;User-Agent&quot;, &quot;a cool browser&quot;)
+        .set(&quot;Accept&quot;, &quot;text/html&quot;)
+});
+
+it(&quot;returns an HTML&quot;, function(done) {
+        request
+            .expect(&quot;Content-Type&quot;, /html/)
+            .expect(200)
+            .end(done)
+});
+
+    it(&quot;returns your User Agent&quot;, function(done) {
+        request
+            .expect(function(res) {
+                var htmlResponse = res.text;
+                var $ = cheerio.load(htmlResponse);
+                var userAgent = $(&quot;.user-agent&quot;).html().trim();
+                if(userAgent !== &apos;a cool browser&apos;) {
+                    throw new Error(&quot;User Agent not found&quot;);
+                }
+            })
+            .end(done)
+    });
+});
+</code></pre><hr>
+<h3 id="app-js"><a href="#app-js" class="headerlink" title="app.js"></a>app.js</h3><pre><code>var express = require(&quot;express&quot;);
+var app = express()
+var path = require(&quot;path&quot;)
+
+app.set(&quot;port&quot;, process.env.PORT || 3000)
+
+app.set(&quot;view engine&quot;, &quot;ejs&quot;);
+var viewPath = path.resolve(__dirname,&quot;views&quot;);
+app.set(&quot;views&quot;, viewPath)
+
+
+app.get(&quot;/&quot;, function(req, res) {
+    var userAgent = req.headers[&quot;user-agent&quot;] || &apos;none&apos;;
+    if(req.accepts(&quot;html&quot;)) {
+        res.render(&quot;index&quot;, {userAgent: userAgent});
+    } else {
+        res.type(&quot;text&quot;)
+        res.send(req.headers[&quot;user-agent&quot;]);
+    }
+});
+
+app.listen(app.get(&quot;port&quot;),function(){
+    console.log(&quot;App started on port &quot; + app.get(&quot;port&quot;));
+})
+
+module.exports = app
+</code></pre><hr>
+<h3 id="view-index-ejs"><a href="#view-index-ejs" class="headerlink" title="view/index.ejs"></a>view/index.ejs</h3><pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;utf-8&quot;&gt;
+    &lt;style&gt;
+        html {
+            font-family: sans-serif;
+            text-align: center;
+        }
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;h2&gt;Your User Agent is:&lt;/h2&gt;
+&lt;h1 class=&quot;user-agent&quot;&gt;
+    &lt;%= userAgent %&gt;
+&lt;/h1&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/05/19/test-unit/" data-id="cj2zypnr70009t6fy90ctbcbz" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/05/22/test-e2e/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          test-e2e
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/05/18/passport/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">passport</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">五月 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/05/22/test-e2e/">test-e2e</a>
+          </li>
+        
+          <li>
+            <a href="/2017/05/19/test-unit/">test unit</a>
+          </li>
+        
+          <li>
+            <a href="/2017/05/18/passport/">passport</a>
+          </li>
+        
+          <li>
+            <a href="/2017/05/18/express-mongodb/">express+mongodb</a>
+          </li>
+        
+          <li>
+            <a href="/2017/05/18/express-视图/">express 视图</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 madao<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

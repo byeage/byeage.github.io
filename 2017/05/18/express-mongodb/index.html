@@ -3,18 +3,20 @@
 <head>
   <meta charset="utf-8">
   
-  <title>welcome | Byeage Blog</title>
+  <title>express+mongodb | Byeage Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Welcome to Lihuazhidao’s Blog">
+  <meta name="description" content="express 程序和 mongodb 的结构 mongo 配置文件 mongod.confsystemLog:     destination: file     path: &amp;quot;/var/log/mongodb/mongod.log&amp;quot;     logAppend: true storage:     dbPath: &amp;quot;/data/db&amp;quot; net:">
 <meta property="og:type" content="article">
-<meta property="og:title" content="welcome">
-<meta property="og:url" content="http://yoursite.com/2017/05/16/Welcome/index.html">
+<meta property="og:title" content="express+mongodb">
+<meta property="og:url" content="http://yoursite.com/2017/05/18/express-mongodb/index.html">
 <meta property="og:site_name" content="Byeage Blog">
-<meta property="og:description" content="Welcome to Lihuazhidao’s Blog">
-<meta property="og:updated_time" content="2017-05-16T06:51:13.000Z">
+<meta property="og:description" content="express 程序和 mongodb 的结构 mongo 配置文件 mongod.confsystemLog:     destination: file     path: &amp;quot;/var/log/mongodb/mongod.log&amp;quot;     logAppend: true storage:     dbPath: &amp;quot;/data/db&amp;quot; net:">
+<meta property="og:image" content="http://yoursite.com/2017/05/18/express-mongodb/structure.png">
+<meta property="og:updated_time" content="2017-05-18T07:17:15.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="welcome">
-<meta name="twitter:description" content="Welcome to Lihuazhidao’s Blog">
+<meta name="twitter:title" content="express+mongodb">
+<meta name="twitter:description" content="express 程序和 mongodb 的结构 mongo 配置文件 mongod.confsystemLog:     destination: file     path: &amp;quot;/var/log/mongodb/mongod.log&amp;quot;     logAppend: true storage:     dbPath: &amp;quot;/data/db&amp;quot; net:">
+<meta name="twitter:image" content="http://yoursite.com/2017/05/18/express-mongodb/structure.png">
   
     <link rel="alternate" href="/atom.xml" title="Byeage Blog" type="application/atom+xml">
   
@@ -67,10 +69,10 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-Welcome" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-express-mongodb" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2017/05/16/Welcome/" class="article-date">
-  <time datetime="2017-05-16T06:47:21.000Z" itemprop="datePublished">2017-05-16</time>
+    <a href="/2017/05/18/express-mongodb/" class="article-date">
+  <time datetime="2017-05-18T03:27:08.000Z" itemprop="datePublished">2017-05-18</time>
 </a>
     
   </div>
@@ -81,7 +83,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      welcome
+      express+mongodb
     </h1>
   
 
@@ -89,11 +91,22 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="Welcome-to-Lihuazhidao’s-Blog"><a href="#Welcome-to-Lihuazhidao’s-Blog" class="headerlink" title="Welcome to Lihuazhidao’s Blog"></a>Welcome to Lihuazhidao’s Blog</h1>
+        <p>express 程序和 mongodb 的结构<br><img src="/2017/05/18/express-mongodb/structure.png" alt="structure"></p>
+<h3 id="mongo-配置文件-mongod-conf"><a href="#mongo-配置文件-mongod-conf" class="headerlink" title="mongo 配置文件 mongod.conf"></a>mongo 配置文件 mongod.conf</h3><pre><code>systemLog:
+    destination: file
+    path: &quot;/var/log/mongodb/mongod.log&quot;
+    logAppend: true
+storage:
+    dbPath: &quot;/data/db&quot;
+net:
+    bindIp: 127.0.0.1
+    port: 27017
+</code></pre><h3 id="启动mongo"><a href="#启动mongo" class="headerlink" title="启动mongo"></a>启动mongo</h3><p>mongod –config /etc/mongod.conf        </p>
+
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/05/16/Welcome/" data-id="cj2zypnql0002t6fyt33iqa4v" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/05/18/express-mongodb/" data-id="cj2zypnqq0004t6fykvqrhf14" class="article-share-link">Share</a>
       
       
     </footer>
@@ -102,19 +115,19 @@
     
 <nav id="article-nav">
   
-    <a href="/2017/05/17/express-middleware/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2017/05/18/passport/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Newer</strong>
       <div class="article-nav-title">
         
-          express middleware
+          passport
         
       </div>
     </a>
   
   
-    <a href="/2017/05/16/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2017/05/18/express-视图/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">Hello World</div>
+      <div class="article-nav-title">express 视图</div>
     </a>
   
 </nav>
