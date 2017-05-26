@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>webpack 在自己项目中的配置和使用 | Byeage Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="首先回答下之前留下的问题 webpack 和 gulp 这两个工具的区别，也查看了网上相关的讨论。首先给两个官方下的定义webpack  webpack is a module bundler for modern JavaScript applications. When webpack processes your application, it recursively builds a de">
+<meta property="og:type" content="article">
+<meta property="og:title" content="webpack 在自己项目中的配置和使用">
+<meta property="og:url" content="http://yoursite.com/2017/05/25/webpack-action/index.html">
+<meta property="og:site_name" content="Byeage Blog">
+<meta property="og:description" content="首先回答下之前留下的问题 webpack 和 gulp 这两个工具的区别，也查看了网上相关的讨论。首先给两个官方下的定义webpack  webpack is a module bundler for modern JavaScript applications. When webpack processes your application, it recursively builds a de">
+<meta property="og:updated_time" content="2017-05-25T09:59:51.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="webpack 在自己项目中的配置和使用">
+<meta name="twitter:description" content="首先回答下之前留下的问题 webpack 和 gulp 这两个工具的区别，也查看了网上相关的讨论。首先给两个官方下的定义webpack  webpack is a module bundler for modern JavaScript applications. When webpack processes your application, it recursively builds a de">
+  
+    <link rel="alternate" href="/atom.xml" title="Byeage Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Byeage Blog</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">白痴总得加把劲</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-webpack-action" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/05/25/webpack-action/" class="article-date">
+  <time datetime="2017-05-25T06:41:49.000Z" itemprop="datePublished">2017-05-25</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      webpack 在自己项目中的配置和使用
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>首先回答下之前留下的问题 webpack 和 gulp 这两个工具的区别，也查看了网上相关的讨论。<br>首先给两个官方下的定义<br><strong><em>webpack</em></strong></p>
+<blockquote>
+<p>webpack is a module bundler for modern JavaScript applications. When webpack processes your application, it recursively builds a dependency graph that includes every module your application needs, then packages all of those modules into a small number of bundles - often only one - to be loaded by the browser.</p>
+</blockquote>
+<hr>
+<p><strong><em>gulp</em></strong></p>
+<blockquote>
+<p>gulp is a toolkit for automating painful or time-consuming tasks in your development workflow, so you can stop messing around and build something.</p>
+</blockquote>
+<p>阅读上述两段文字后大概可以看出一点内容来</p>
+<ol>
+<li>webpack 是一个module bundler，根据依赖关系将所有程序中将会用到的模块打包成少量的包，通常只有一个会被浏览器加载</li>
+<li>gulp 开发流程中用于一些自动化的任务和一些耗时的任务 </li>
+</ol>
+<p>我想两者功能的混淆并不来源于他们两个工具自身的定位，大概来自各自的插件，其中存在一些功能的重叠，比如说一些css编译，js代码压缩等等</p>
+<p>在工作的一些体会来说，webpack应该是比较适用于一些模块化开发的单页应用，gulp相对来说应用范围就更广泛些了。</p>
+<p>公司在使用vue过程中好像都是使用的vue-cli这个构建工具，倒省去了好多时间和功夫。但要让自己去配置webpack构建一个项目时就感觉很蛋疼😵了，还有就是根据一些特殊要求去修改原本的webpack配置文件时茫然不知怎么去改，所以下面将会介绍一些关于webpack 方面的相关内容。</p>
+<p>webpack 核心的四个部分</p>
+<ul>
+<li>entry  　webpack根据依赖关系将整个应用打包，而entry 正是整个应用的入口，之后再根据依赖关系获取相关内容</li>
+<li>output 设置从何获取资源以及将如何打包、打包后的资源输出到哪</li>
+<li>loader webpack将所有资源都视为模块，但webpack 只认识javascript ，loader就是将这些文件转换成模块以便让webpack添加到其依赖关系当中</li>
+<li>plugins loader 执行文件的转换，plugins 则常用于一些打包模块的编译以及一些自定义的功能，说的好像有些凌乱。</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/05/25/webpack-action/" data-id="cj356t4wx000agafyphxmnmw5" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2017/05/23/webpack-vue/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">了解vue2中webpack的相关配置</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">五月 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/05/25/webpack-action/">webpack 在自己项目中的配置和使用</a>
+          </li>
+        
+          <li>
+            <a href="/2017/05/23/webpack-vue/">了解vue2中webpack的相关配置</a>
+          </li>
+        
+          <li>
+            <a href="/2017/05/22/test-e2e/">test-e2e</a>
+          </li>
+        
+          <li>
+            <a href="/2017/05/19/test-unit/">test unit</a>
+          </li>
+        
+          <li>
+            <a href="/2017/05/18/passport/">passport</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 madao<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

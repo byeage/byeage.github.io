@@ -68,6 +68,53 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-express-middleware" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/05/17/express-middleware/" class="article-date">
+  <time datetime="2017-05-17T08:15:51.000Z" itemprop="datePublished">2017-05-17</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/05/17/express-middleware/">express middleware</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>关于Express 中间件执行的一张很好理解的图<br><img src="/2017/05/17/express-middleware/node-middleware.png" alt="express-middleware"></p>
+<ol>
+<li>在resquest 和 response 之间处理一些任务</li>
+<li>middleware stack 是一个元素为函数的数组</li>
+<li>在每一个middleware 的中间件函数中都可以修改resquest和response ，在中间件函数中需要对request 作出响应，可以是第一个也可以是最后一个，如果没有响应，服务就会挂起</li>
+<li>利用中间件可以将应用分割成一个个组件，便于管理组合</li>
+<li>在express 中你可以使用app.use 将中间件函数应用到middleware stack 中</li>
+<li>在middleware function 中需要完成resquest的响应或者将request的响应交给下一个middleware function处理，直到完成对resquest的响应</li>
+</ol>
+<hr>
+<h3 id="error-hanlder-middleware"><a href="#error-hanlder-middleware" class="headerlink" title="error-hanlder middleware"></a>error-hanlder middleware</h3><p>有两种中间件<br> . 负责任务处理<br> . 负责错误处理<br> 在中间件里未出现错误，则跳过error-handler middleware，直接交给下一个middleware<br> <img src="/2017/05/17/express-middleware/error-handler-1.png" alt="error-handler"><br> 在中间件里出现错误，则交给error-handler middleware， 结束响应<br> <img src="/2017/05/17/express-middleware/error-handler-2.png" alt="error-handler"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/05/17/express-middleware/" data-id="cj356t4wn0005gafy6u41s1dd" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-Welcome" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2017/05/16/Welcome/" class="article-date">
@@ -94,7 +141,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/05/16/Welcome/" data-id="cj341qual0001jivedkw4x8kf" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/05/16/Welcome/" data-id="cj356t4w70001gafys7csxl30" class="article-share-link">Share</a>
       
       
     </footer>
@@ -139,7 +186,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/05/16/hello-world/" data-id="cj341qubf0008jive0jwc6wzz" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/05/16/hello-world/" data-id="cj356t4wr0007gafyx4civgow" class="article-share-link">Share</a>
       
       
     </footer>
@@ -183,6 +230,10 @@
       <ul>
         
           <li>
+            <a href="/2017/05/25/webpack-action/">webpack 在自己项目中的配置和使用</a>
+          </li>
+        
+          <li>
             <a href="/2017/05/23/webpack-vue/">了解vue2中webpack的相关配置</a>
           </li>
         
@@ -196,10 +247,6 @@
         
           <li>
             <a href="/2017/05/18/passport/">passport</a>
-          </li>
-        
-          <li>
-            <a href="/2017/05/18/express-mongodb/">express+mongodb</a>
           </li>
         
       </ul>

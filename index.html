@@ -68,6 +68,66 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-webpack-action" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/05/25/webpack-action/" class="article-date">
+  <time datetime="2017-05-25T06:41:49.000Z" itemprop="datePublished">2017-05-25</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/05/25/webpack-action/">webpack 在自己项目中的配置和使用</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>首先回答下之前留下的问题 webpack 和 gulp 这两个工具的区别，也查看了网上相关的讨论。<br>首先给两个官方下的定义<br><strong><em>webpack</em></strong></p>
+<blockquote>
+<p>webpack is a module bundler for modern JavaScript applications. When webpack processes your application, it recursively builds a dependency graph that includes every module your application needs, then packages all of those modules into a small number of bundles - often only one - to be loaded by the browser.</p>
+</blockquote>
+<hr>
+<p><strong><em>gulp</em></strong></p>
+<blockquote>
+<p>gulp is a toolkit for automating painful or time-consuming tasks in your development workflow, so you can stop messing around and build something.</p>
+</blockquote>
+<p>阅读上述两段文字后大概可以看出一点内容来</p>
+<ol>
+<li>webpack 是一个module bundler，根据依赖关系将所有程序中将会用到的模块打包成少量的包，通常只有一个会被浏览器加载</li>
+<li>gulp 开发流程中用于一些自动化的任务和一些耗时的任务 </li>
+</ol>
+<p>我想两者功能的混淆并不来源于他们两个工具自身的定位，大概来自各自的插件，其中存在一些功能的重叠，比如说一些css编译，js代码压缩等等</p>
+<p>在工作的一些体会来说，webpack应该是比较适用于一些模块化开发的单页应用，gulp相对来说应用范围就更广泛些了。</p>
+<p>公司在使用vue过程中好像都是使用的vue-cli这个构建工具，倒省去了好多时间和功夫。但要让自己去配置webpack构建一个项目时就感觉很蛋疼😵了，还有就是根据一些特殊要求去修改原本的webpack配置文件时茫然不知怎么去改，所以下面将会介绍一些关于webpack 方面的相关内容。</p>
+<p>webpack 核心的四个部分</p>
+<ul>
+<li>entry  　webpack根据依赖关系将整个应用打包，而entry 正是整个应用的入口，之后再根据依赖关系获取相关内容</li>
+<li>output 设置从何获取资源以及将如何打包、打包后的资源输出到哪</li>
+<li>loader webpack将所有资源都视为模块，但webpack 只认识javascript ，loader就是将这些文件转换成模块以便让webpack添加到其依赖关系当中</li>
+<li>plugins loader 执行文件的转换，plugins 则常用于一些打包模块的编译以及一些自定义的功能，说的好像有些凌乱。</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/05/25/webpack-action/" data-id="cj356t4wx000agafyphxmnmw5" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-webpack-vue" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2017/05/23/webpack-vue/" class="article-date">
@@ -864,7 +924,7 @@ webpack(webpackConfig, function (err, stats) {
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/05/23/webpack-vue/" data-id="cj341qubj000ajivezjjdcxev" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/05/23/webpack-vue/" data-id="cj356t4x0000cgafydwxp59md" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1034,7 +1094,7 @@ webpack(webpackConfig, function (err, stats) {
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/05/22/test-e2e/" data-id="cj341qubg0009jiveyx768wit" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/05/22/test-e2e/" data-id="cj356t4wu0009gafyllevhvs7" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1277,7 +1337,7 @@ module.exports = app
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/05/19/test-unit/" data-id="cj341qubm000bjivevcsgmdei" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/05/19/test-unit/" data-id="cj356t4wy000bgafyn5161b13" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1316,7 +1376,7 @@ module.exports = app
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/05/18/passport/" data-id="cj341qub90006jivevf0khqw6" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/05/18/passport/" data-id="cj356t4wt0008gafysbp2dsb1" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1363,7 +1423,7 @@ net:
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/05/18/express-mongodb/" data-id="cj341qub10004jive2byuyt43" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/05/18/express-mongodb/" data-id="cj356t4wi0003gafy8andorqf" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1402,7 +1462,7 @@ app.disable(&quot;view cache&quot;)
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/05/18/express-视图/" data-id="cj341qub60005jivew7m2620i" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/05/18/express-视图/" data-id="cj356t4wp0006gafy7u4hrgge" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1655,7 +1715,7 @@ app.disable(&quot;view cache&quot;)
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/05/18/Http-状态码/" data-id="cj341quaq0002jive79x0gnf7" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/05/18/Http-状态码/" data-id="cj356t4wa0002gafyzpxawn40" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1746,7 +1806,7 @@ app.use(&quot;/uploads&quot;, express.static(userUploadsPath));
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/05/17/express-router/" data-id="cj341qubc0007jivedlcfa1iy" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/05/17/express-router/" data-id="cj356t4wl0004gafydgjzklh7" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1797,54 +1857,7 @@ app.use(&quot;/uploads&quot;, express.static(userUploadsPath));
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/05/17/Express-常用中间件/" data-id="cj341quad0000jive1uh1cxwu" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-express-middleware" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/05/17/express-middleware/" class="article-date">
-  <time datetime="2017-05-17T08:15:51.000Z" itemprop="datePublished">2017-05-17</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/05/17/express-middleware/">express middleware</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>关于Express 中间件执行的一张很好理解的图<br><img src="/2017/05/17/express-middleware/node-middleware.png" alt="express-middleware"></p>
-<ol>
-<li>在resquest 和 response 之间处理一些任务</li>
-<li>middleware stack 是一个元素为函数的数组</li>
-<li>在每一个middleware 的中间件函数中都可以修改resquest和response ，在中间件函数中需要对request 作出响应，可以是第一个也可以是最后一个，如果没有响应，服务就会挂起</li>
-<li>利用中间件可以将应用分割成一个个组件，便于管理组合</li>
-<li>在express 中你可以使用app.use 将中间件函数应用到middleware stack 中</li>
-<li>在middleware function 中需要完成resquest的响应或者将request的响应交给下一个middleware function处理，直到完成对resquest的响应</li>
-</ol>
-<hr>
-<h3 id="error-hanlder-middleware"><a href="#error-hanlder-middleware" class="headerlink" title="error-hanlder middleware"></a>error-hanlder middleware</h3><p>有两种中间件<br> . 负责任务处理<br> . 负责错误处理<br> 在中间件里未出现错误，则跳过error-handler middleware，直接交给下一个middleware<br> <img src="/2017/05/17/express-middleware/error-handler-1.png" alt="error-handler"><br> 在中间件里出现错误，则交给error-handler middleware， 结束响应<br> <img src="/2017/05/17/express-middleware/error-handler-2.png" alt="error-handler"></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/05/17/express-middleware/" data-id="cj341quat0003jive2k9swy7k" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/05/17/Express-常用中间件/" data-id="cj356t4w10000gafy7dnzbp38" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1888,6 +1901,10 @@ app.use(&quot;/uploads&quot;, express.static(userUploadsPath));
       <ul>
         
           <li>
+            <a href="/2017/05/25/webpack-action/">webpack 在自己项目中的配置和使用</a>
+          </li>
+        
+          <li>
             <a href="/2017/05/23/webpack-vue/">了解vue2中webpack的相关配置</a>
           </li>
         
@@ -1901,10 +1918,6 @@ app.use(&quot;/uploads&quot;, express.static(userUploadsPath));
         
           <li>
             <a href="/2017/05/18/passport/">passport</a>
-          </li>
-        
-          <li>
-            <a href="/2017/05/18/express-mongodb/">express+mongodb</a>
           </li>
         
       </ul>
