@@ -68,6 +68,401 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-Http-状态码" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/05/18/Http-状态码/" class="article-date">
+  <time datetime="2017-05-18T01:58:41.000Z" itemprop="datePublished">2017-05-18</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/05/18/Http-状态码/">Http 状态码</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>HTTP 状态诠释，有点意思<br>1xx: hold on<br>2xx: here you go<br>3xx: go away<br>4xx: you messed up<br>5xx: I messed up</p>
+<table>
+<thead>
+<tr>
+<th>状态码</th>
+<th>description</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>100</td>
+<td>Continue</td>
+<td>继续。客户端应继续其请求</td>
+</tr>
+<tr>
+<td>101</td>
+<td>Switching Protocols</td>
+<td>切换协议。服务器根据客户端的请求切换协议。只能切换到更高级的协议，例如，切换到HTTP的新版本协议</td>
+</tr>
+<tr>
+<td>200</td>
+<td>OK</td>
+<td>请求成功。一般用于GET与POST请求</td>
+</tr>
+<tr>
+<td>201</td>
+<td>Created</td>
+<td>已创建。成功请求并创建了新的资源</td>
+</tr>
+<tr>
+<td>202</td>
+<td>Accepted</td>
+<td>已接受。已经接受请求，但未处理完成</td>
+</tr>
+<tr>
+<td>203</td>
+<td>Non-Authoritative Information</td>
+<td>非授权信息。请求成功。但返回的meta信息不在原始的服务器，而是一个副本</td>
+</tr>
+<tr>
+<td>204</td>
+<td>No Content</td>
+<td>无内容。服务器成功处理，但未返回内容。在未更新网页的情况下，可确保浏览器继续显示当前文档</td>
+</tr>
+<tr>
+<td>205</td>
+<td>Reset Content</td>
+<td>重置内容。服务器处理成功，用户终端（例如：浏览器）应重置文档视图。可通过此返回码清除浏览器的表单域</td>
+</tr>
+<tr>
+<td>206</td>
+<td>Partial Content</td>
+<td>部分内容。服务器成功处理了部分GET请求</td>
+</tr>
+<tr>
+<td>300</td>
+<td>Multiple Choices</td>
+<td>多种选择。请求的资源可包括多个位置，相应可返回一个资源特征与地址的列表用于用户终端（例如：浏览器）选择</td>
+</tr>
+<tr>
+<td>301</td>
+<td>Moved Permanently</td>
+<td>永久移动。请求的资源已被永久的移动到新URI，返回信息会包括新的URI，浏览器会自动定向到新URI。今后任何新的请求都应使用新的URI代替</td>
+</tr>
+<tr>
+<td>302</td>
+<td>Found</td>
+<td>临时移动。与301类似。但资源只是临时被移动。客户端应继续使用原有URI</td>
+</tr>
+<tr>
+<td>303</td>
+<td>See Other</td>
+<td>查看其它地址。与301类似。使用GET和POST请求查看</td>
+</tr>
+<tr>
+<td>304</td>
+<td>Not Modified</td>
+<td>未修改。所请求的资源未修改，服务器返回此状态码时，不会返回任何资源。客户端通常会缓存访问过的资源，通过提供一个头信息指出客户端希望只返回在指定日期之后修改的资源</td>
+</tr>
+<tr>
+<td>305</td>
+<td>Use Proxy</td>
+<td>使用代理。所请求的资源必须通过代理访问</td>
+</tr>
+<tr>
+<td>306</td>
+<td>Unused</td>
+<td>已经被废弃的HTTP状态码</td>
+</tr>
+<tr>
+<td>307</td>
+<td>Temporary Redirect</td>
+<td>临时重定向。与302类似。使用GET请求重定向</td>
+</tr>
+<tr>
+<td>400</td>
+<td>Bad Request</td>
+<td>客户端请求的语法错误，服务器无法理解</td>
+</tr>
+<tr>
+<td>401</td>
+<td>Unauthorized</td>
+<td>请求要求用户的身份认证</td>
+</tr>
+<tr>
+<td>402</td>
+<td>Payment Required</td>
+<td>保留，将来使用</td>
+</tr>
+<tr>
+<td>403</td>
+<td>Forbidden</td>
+<td>服务器理解请求客户端的请求，但是拒绝执行此请求</td>
+</tr>
+<tr>
+<td>404</td>
+<td>Not Found</td>
+<td>服务器无法根据客户端的请求找到资源（网页）。通过此代码，网站设计人员可设置”您所请求的资源无法找到”的个性页面</td>
+</tr>
+<tr>
+<td>405</td>
+<td>Method Not Allowed</td>
+<td>客户端请求中的方法被禁止</td>
+</tr>
+<tr>
+<td>406</td>
+<td>Not Acceptable</td>
+<td>服务器无法根据客户端请求的内容特性完成请求</td>
+</tr>
+<tr>
+<td>407</td>
+<td>Proxy Authentication Required</td>
+<td>请求要求代理的身份认证，与401类似，但请求者应当使用代理进行授权</td>
+</tr>
+<tr>
+<td>408</td>
+<td>Request Time-out</td>
+<td>服务器等待客户端发送的请求时间过长，超时</td>
+</tr>
+<tr>
+<td>409</td>
+<td>Conflict</td>
+<td>服务器完成客户端的PUT请求是可能返回此代码，服务器处理请求时发生了冲突</td>
+</tr>
+<tr>
+<td>410</td>
+<td>Gone</td>
+<td>客户端请求的资源已经不存在。410不同于404，如果资源以前有现在被永久删除了可使用410代码，网站设计人员可通过301代码指定资源的新位置</td>
+</tr>
+<tr>
+<td>411</td>
+<td>Length Required</td>
+<td>服务器无法处理客户端发送的不带Content-Length的请求信息</td>
+</tr>
+<tr>
+<td>412</td>
+<td>Precondition Failed</td>
+<td>客户端请求信息的先决条件错误</td>
+</tr>
+<tr>
+<td>413</td>
+<td>Request Entity Too Large</td>
+<td>由于请求的实体过大，服务器无法处理，因此拒绝请求。为防止客户端的连续请求，服务器可能会关闭连接。如果只是服务器暂时无法处理，则会包含一个Retry-After的响应信息</td>
+</tr>
+<tr>
+<td>414</td>
+<td>Request-URI Too Large</td>
+<td>请求的URI过长（URI通常为网址），服务器无法处理</td>
+</tr>
+<tr>
+<td>415</td>
+<td>Unsupported Media Type</td>
+<td>服务器无法处理请求附带的媒体格式</td>
+</tr>
+<tr>
+<td>416</td>
+<td>Requested range not satisfiable</td>
+<td>客户端请求的范围无效</td>
+</tr>
+<tr>
+<td>417</td>
+<td>Expectation Failed</td>
+<td>服务器无法满足Expect的请求头信息</td>
+</tr>
+<tr>
+<td>500</td>
+<td>Internal Server Error</td>
+<td>服务器内部错误，无法完成请求</td>
+</tr>
+<tr>
+<td>501</td>
+<td>Not Implemented</td>
+<td>服务器不支持请求的功能，无法完成请求</td>
+</tr>
+<tr>
+<td>502</td>
+<td>Bad Gateway</td>
+<td>充当网关或代理的服务器，从远端服务器接收到了一个无效的请求</td>
+</tr>
+<tr>
+<td>503</td>
+<td>Service Unavailable</td>
+<td>由于超载或系统维护，服务器暂时的无法处理客户端的请求。延时的长度可包含在服务器的Retry-After头信息中</td>
+</tr>
+<tr>
+<td>504</td>
+<td>Gateway Time-out</td>
+<td>充当网关或代理的服务器，未及时从远端服务器获取请求</td>
+</tr>
+<tr>
+<td>505</td>
+<td>HTTP Version not supported</td>
+<td>服务器不支持请求的HTTP协议的版本，无法完成处理</td>
+</tr>
+</tbody>
+</table>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/05/18/Http-状态码/" data-id="cj5ap4e9c0000hcfycz8gi5v6" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-express-router" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/05/17/express-router/" class="article-date">
+  <time datetime="2017-05-17T15:08:15.000Z" itemprop="datePublished">2017-05-17</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/05/17/express-router/">express-router</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="Express-simple"><a href="#Express-simple" class="headerlink" title="Express simple"></a>Express simple</h3><pre><code>app.get(&quot;/users&quot;, function(request, response) {
+response.send(&quot;Users&quot;);
+});
+</code></pre><h3 id="Express-router-带参数"><a href="#Express-router-带参数" class="headerlink" title="Express router 带参数"></a>Express router 带参数</h3><pre><code>app.get(&quot;/users/:userid&quot;, function(req, res) {
+    var userId = parseInt(req.params.userid, 10);
+    // ...
+}
+</code></pre><h3 id="Express-router-用正则匹配，更精细的控制路由"><a href="#Express-router-用正则匹配，更精细的控制路由" class="headerlink" title="Express router 用正则匹配，更精细的控制路由"></a>Express router 用正则匹配，更精细的控制路由</h3><pre><code>app.get(/^\/users\/(\d+)$/, function(req, res) {
+    var userId = parseInt(req.params[0], 10);
+    // ...
+});
+</code></pre><p><strong><em>users/</em></strong> 后面带的参数必须为数字</p>
+<pre><code>app.get(/^\/users\/(\d+)-(\d+)$/, function(req, res) {
+    var startId = parseInt(req.params[0], 10);
+    var endId = parseInt(req.params[1], 10);
+    // ...
+});
+</code></pre><p>匹配路由 <strong><em>/users/100-500</em></strong></p>
+<h3 id="Express-router-获取查询参数"><a href="#Express-router-获取查询参数" class="headerlink" title="Express router  获取查询参数"></a>Express router  获取查询参数</h3><p><strong><em>／search?keywords=nodejs</em></strong> 通过req.query[‘key’] 获取查询参数</p>
+<pre><code>app.get(&quot;/search&quot;, function(req, res) {
+   var keywords = req.query.keywords 
+// ...
+});
+</code></pre><hr>
+<h3 id="使用router-分割应用"><a href="#使用router-分割应用" class="headerlink" title="使用router 分割应用"></a>使用router 分割应用</h3><blockquote>
+<p>A router is an isolated instance of middleware and routes. Routers can be<br>thought of as “mini” applications only capable of performing middleware<br>and routing. Every express application has a built-in app router.</p>
+</blockquote>
+<p>Routers 可以表现的像中间件，通过.use() 组合到应用中。简而言之，router 将原本庞大的应用分割成一个个mini应用，<br>然后一个个mini应用可以通过类似中间件的方式，将它们拼凑起来，组成一个大型应用。其实router 就是一个基础的middleware。</p>
+<h4 id="子路由"><a href="#子路由" class="headerlink" title="子路由"></a>子路由</h4><pre><code>var express = require(&quot;express&quot;);
+var api = express.Router();
+api.use(function(req, res, next) {
+    // doing something
+    next();
+});
+api.get(&quot;/users&quot;, function(req, res) { /* ... */ });
+api.post(&quot;/user&quot;, function(req, res) { /* ... */ });
+module.exports = api;
+</code></pre><p> 这看起来就像一个mini的应用，他支持中间件和路由，但他不能单独运行，只能插入到主应用当中去，通过这种方式，就能将应用分割成各个部分了</p>
+<hr>
+<h3 id="express-static-中间件"><a href="#express-static-中间件" class="headerlink" title="express.static 中间件"></a>express.static 中间件</h3><pre><code>var publicPath = path.resolve(__dirname, &quot;public&quot;);
+app.use(express.static(publicPath));
+</code></pre><p>设置静态文件夹，path.resolve 支持跨平台的路径解析。默认静态文件夹设置在网站的根目录，然饿你也可以指定静态文件夹的位置。幸运的是Expres中间件可以指定mount的位置，以为着中间件只在制定的位置做出响应。</p>
+<blockquote>
+<p>Note that this can be done for any middleware, not only the static file middleware.</p>
+</blockquote>
+<pre><code>var publicPath = path.resolve(__dirname, &quot;public&quot;);
+app.use(&apos;/admin&apos;,express.static(publicPath));
+</code></pre><p>使用多个静态文件夹 ，because express.static is middleware, you can just apply it multiple times</p>
+<pre><code>var publicPath = path.resolve(__dirname, &quot;public&quot;);
+var userUploadsPath = path.resolve(__dirname, &quot;user_uploads&quot;);
+app.use(express.static(publicPath));
+app.use(express.static(userUploadsPath));
+</code></pre><p> 因为指定了多个静态文件夹，请求会在这多个文件夹里寻找匹配的资源，找到第一个之后即结束了响应，如果多个文件夹里有重名的资源，就有可能返回错误的资源。所以当有多个静态文件夹时，一般可以通过指定路径的方式来避免冲突。</p>
+<pre><code>app.use(&quot;/public&quot;, express.static(publicPath));
+app.use(&quot;/uploads&quot;, express.static(userUploadsPath));    
+</code></pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/05/17/express-router/" data-id="cj5ap4ea10007hcfypi1a5rwz" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Express-常用中间件" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/05/17/Express-常用中间件/" class="article-date">
+  <time datetime="2017-05-17T09:52:01.000Z" itemprop="datePublished">2017-05-17</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/05/17/Express-常用中间件/">Express 常用中间件</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="Express-常用中间件"><a href="#Express-常用中间件" class="headerlink" title="Express 常用中间件"></a>Express 常用中间件</h3><hr>
+<ul>
+<li>body-parser </li>
+<li>cookie-parser</li>
+<li>compression</li>
+<li>Helmet</li>
+<li>connect-assets</li>
+<li>bcrypt-nodejs  用于用户密码等的加密</li>
+<li>connect-flash</li>
+<li>passport 用于用户的验证</li>
+<li>passport-local 验证策略</li>
+<li>mongoose </li>
+<li>pug</li>
+<li>passport</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/05/17/Express-常用中间件/" data-id="cj5ap4e9k0001hcfytflqktvw" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-express-middleware" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2017/05/17/express-middleware/" class="article-date">
@@ -105,7 +500,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/05/17/express-middleware/" data-id="cj356t4wn0005gafy6u41s1dd" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/05/17/express-middleware/" data-id="cj5ap4e9r0003hcfyfbukcjb6" class="article-share-link">Share</a>
       
       
     </footer>
@@ -141,7 +536,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/05/16/Welcome/" data-id="cj356t4w70001gafys7csxl30" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/05/16/Welcome/" data-id="cj5ap4e9m0002hcfyq9fanl3x" class="article-share-link">Share</a>
       
       
     </footer>
@@ -186,7 +581,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/05/16/hello-world/" data-id="cj356t4wr0007gafyx4civgow" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/05/16/hello-world/" data-id="cj5ap4ea00006hcfyabjgpmyb" class="article-share-link">Share</a>
       
       
     </footer>
@@ -217,7 +612,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">归档</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">五月 2017</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">七月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">六月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">五月 2017</a></li></ul>
     </div>
   </div>
 
@@ -230,23 +625,23 @@
       <ul>
         
           <li>
+            <a href="/2017/07/10/Collaborative-Web-Development/">Collaborative Web Development</a>
+          </li>
+        
+          <li>
+            <a href="/2017/06/29/react-函数/">react-函数</a>
+          </li>
+        
+          <li>
+            <a href="/2017/06/08/research/">research</a>
+          </li>
+        
+          <li>
             <a href="/2017/05/25/webpack-action/">webpack 在自己项目中的配置和使用</a>
           </li>
         
           <li>
             <a href="/2017/05/23/webpack-vue/">了解vue2中webpack的相关配置</a>
-          </li>
-        
-          <li>
-            <a href="/2017/05/22/test-e2e/">test-e2e</a>
-          </li>
-        
-          <li>
-            <a href="/2017/05/19/test-unit/">test unit</a>
-          </li>
-        
-          <li>
-            <a href="/2017/05/18/passport/">passport</a>
           </li>
         
       </ul>

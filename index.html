@@ -68,6 +68,264 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-Collaborative-Web-Development" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/07/10/Collaborative-Web-Development/" class="article-date">
+  <time datetime="2017-07-10T15:02:40.000Z" itemprop="datePublished">2017-07-10</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/07/10/Collaborative-Web-Development/">Collaborative Web Development</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ol>
+<li>写高质量的代码</li>
+<li>参与开源项目</li>
+<li>提高文档化的实践能力</li>
+<li>认识到包容和尊重的必要性</li>
+</ol>
+<p>###写高质量代码需要遵循对原则</p>
+<ol>
+<li>遵循一些列的标准</li>
+<li>使用版本控制</li>
+<li>又完好的测试</li>
+<li>使用自动检查</li>
+</ol>
+<p>当我们写代码时需要遵循以下原则，能被共同理解的，能够悲安全修改不会产生副作用的</p>
+<p>遵循以下原则</p>
+<ul>
+<li>使用社区的准则</li>
+<li>充分遵守</li>
+<li>存储在版本控制器之下</li>
+<li>容易阅读和理解！</li>
+</ul>
+<h3 id="javascript"><a href="#javascript" class="headerlink" title="javascript"></a>javascript</h3><p><img src="https://standardjs.com/" alt="Javascript Standard Style"><br><img src="https://github.com/airbnb/javascript" alt="Airbnb Javascript Style Guide"><br><img src="https://github.com/rwaldron/idiomatic.js" alt="Idiomatic.js"></p>
+<h3 id="html"><a href="#html" class="headerlink" title="html"></a>html</h3><p><img src="http://codeguide.co/" alt="HTML"></p>
+<h3 id="css"><a href="#css" class="headerlink" title="css"></a>css</h3><p><img src="https://github.com/necolas/idiomatic-css/tree/master/translations/zh-CN" alt="CSS"></p>
+<h3 id="sass-scss"><a href="#sass-scss" class="headerlink" title="sass/scss"></a>sass/scss</h3><p><img src="https://github.com/airbnb/css#sass" alt="Sass"></p>
+<ol>
+<li><p>充分遵循代码规范。当代码规范放在实际生产中才会起作用，之前介绍了那么多的代码规范，第二步就是遵循哪些代码规范。人工去校验代码显然是枯燥无味也不合适的。好在有一些代码格式化的插件帮我们替换相关工作。一般文本编辑器就可以配置相关内容去运行代码校验，发现错误后回及时提示允许我们去纠正他。比如js的eslint，jslint之类。我们应该让代码校验运行在任何时刻。当代码校验出错时，测试不让通过，当进行版本提交时,代码校验出错时，不让其提交</p>
+</li>
+<li><p>版本控制的好处</p>
+</li>
+</ol>
+<ul>
+<li>加强简化团队合作</li>
+<li>能回退变更</li>
+<li>开辟项目分枝</li>
+<li>代码冲突解决</li>
+</ul>
+<ol>
+<li>测试</li>
+</ol>
+<ul>
+<li>单元测试</li>
+<li>功能测试</li>
+<li>性能测试</li>
+<li>压力测试</li>
+<li>扩展性测试</li>
+<li>安全测试</li>
+<li>回归测试</li>
+</ul>
+<p>单元测试 javascript + Mocha + Chai<br>浏览器功能测试</p>
+<ul>
+<li>[BrowserStack] (<a href="https://www.browserstack.com/" target="_blank" rel="external">https://www.browserstack.com/</a>) </li>
+<li><a href="https://www.browserling.com/" target="_blank" rel="external">Browserling</a></li>
+<li><a href="https://saucelabs.com/" target="_blank" rel="external">Sauce Labs</a></li>
+<li><a href="http://webdriver.io/" target="_blank" rel="external">WebDriver.io’s</a></li>
+<li><a href="http://docs.seleniumhq.org/" target="_blank" rel="external">Selenium</a></li>
+</ul>
+<p><img src="https://opendevicelab.com/" alt="终端测试"></p>
+<p>测试驱动开发</p>
+<ol>
+<li>添加测试</li>
+<li>运行测试查看是否失败</li>
+<li>coding</li>
+<li>运行测试</li>
+<li>代码重构</li>
+<li>repeat</li>
+</ol>
+<p>自动化集成 <img src="https://travis-ci.org/" alt="travis">  Jenkins<br>结对编程。。。</p>
+<h3 id="Code-Reviews"><a href="#Code-Reviews" class="headerlink" title="Code Reviews"></a>Code Reviews</h3><ol>
+<li>为每一个参加code review 的人的建议</li>
+</ol>
+<ul>
+<li>接受多不同的编程方式，权衡自己更容易接受的</li>
+<li>提出疑问，而不是去强求别人</li>
+<li>好的问题避免避免决断，避免假设</li>
+<li>避免人身攻击</li>
+<li>详细说明，记住别人通常是不会明白你的意图的</li>
+<li>持有人性</li>
+<li>不嘲讽</li>
+<li>保持真实</li>
+<li>保持对话同步</li>
+</ul>
+<ol>
+<li>当你自己的代码被reviewed  时，可遵循的建议</li>
+</ol>
+<ul>
+<li>对code reviewer 的建议表示感激</li>
+<li>寻求理解reviewer 的观点</li>
+<li>解释代码为何存在</li>
+<li>尝试对每一个评论进行反馈<br>…</li>
+</ul>
+<ol>
+<li>review 代码时遵循的意见</li>
+</ol>
+<ul>
+<li>理解为何需要改变</li>
+<li>对强烈不符合你的意思的进行讨论交流</li>
+<li>简化代码能够解决相同的问题</li>
+<li>当涉及到哲学问题的时，线下讨论</li>
+<li>提供可替代的方案</li>
+</ul>
+<p>待完善</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/07/10/Collaborative-Web-Development/" data-id="cj5ap4eab000fhcfyyxj1x7s4" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-react-函数" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/06/29/react-函数/" class="article-date">
+  <time datetime="2017-06-29T13:09:56.000Z" itemprop="datePublished">2017-06-29</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/06/29/react-函数/">react-函数</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ol>
+<li>immutability</li>
+<li>purity</li>
+<li>data transformation</li>
+<li>higher-order functions</li>
+<li>recursion</li>
+<li>Composition</li>
+</ol>
+<h3 id="immutability-不可变"><a href="#immutability-不可变" class="headerlink" title="immutability 不可变"></a>immutability 不可变</h3><pre><code>In a functional program, data is immutable. It never changes.
+</code></pre><p>在函数式编程中数据是不会变的，如何理解 ？</p>
+<ul>
+<li>不会改变原始数据，函数在原始数据的副本上进行操作。需要注意的是js参数，对象数组传递的都是引用</li>
+</ul>
+<h3 id="purity-纯函数"><a href="#purity-纯函数" class="headerlink" title="purity  纯函数"></a>purity  纯函数</h3><pre><code>A pure function is a function that returns a value that is computed based on its arguments.
+</code></pre><p>纯函数至少接受一个参数，经常返回一个值或另一个参数，如何理解？</p>
+<ul>
+<li>不会有副作用，不会设置全局变量不会改变应用的任何状态</li>
+<li>不会改变函数作用域外值，不会改变参数传进来的值</li>
+</ul>
+<p>写函数时试着遵循以下原则</p>
+<ol>
+<li>至少有一个参数</li>
+<li>返回一个值或函数</li>
+<li>函数不会改变传过来的参数</li>
+</ol>
+<h4 id="data-transformation-数据变化"><a href="#data-transformation-数据变化" class="headerlink" title="data transformation 数据变化"></a>data transformation 数据变化</h4><pre><code>transform data from one type to another.
+</code></pre><p>需要掌握各种js的内置purity函数</p>
+<p>Array.map<br>Array.reduce<br>Array.reduceRight<br>Array.filter</p>
+<h3 id="higher-order-functions-高阶函数"><a href="#higher-order-functions-高阶函数" class="headerlink" title="higher-order functions 高阶函数"></a>higher-order functions 高阶函数</h3><pre><code>Higher-order functions are functions that can manipulate other functions.
+</code></pre><ul>
+<li>把函数作为参数传入或者返回函数</li>
+<li>柯里化</li>
+</ul>
+<h3 id="Recursion-递归"><a href="#Recursion-递归" class="headerlink" title="Recursion 递归"></a>Recursion 递归</h3><pre><code>Recursion is a technique that involves creating functions that recall themselves.
+</code></pre><ul>
+<li>尽可能的用滴贵替代循环</li>
+</ul>
+<h3 id="Composition-组合"><a href="#Composition-组合" class="headerlink" title="Composition 组合"></a>Composition 组合</h3><p>函数式编程将逻辑分散在各个颗粒度好笑的纯函数当中，最终你需要将这些函数以顺序或者并行的方式整合起来，或者将它们组合成更大的函数</p>
+<p>函数式编程三大要点</p>
+<ol>
+<li>保持数据不可变</li>
+<li>纯函数</li>
+<li>尽可能递归地带循环</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/06/29/react-函数/" data-id="cj5ap4ea30009hcfyxgnvk6el" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-research" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/06/08/research/" class="article-date">
+  <time datetime="2017-06-08T06:02:51.000Z" itemprop="datePublished">2017-06-08</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/06/08/research/">research</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="最近需要调研的"><a href="#最近需要调研的" class="headerlink" title="最近需要调研的"></a>最近需要调研的</h1><ol>
+<li>webpack 的url-loader 和 resolve-url-loader</li>
+<li>客户端存储</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/06/08/research/" data-id="cj5ap4ea5000ahcfydl8wpj6a" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-webpack-action" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2017/05/25/webpack-action/" class="article-date">
@@ -118,7 +376,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/05/25/webpack-action/" data-id="cj356t4wx000agafyphxmnmw5" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/05/25/webpack-action/" data-id="cj5ap4ea7000chcfyolxdg9vj" class="article-share-link">Share</a>
       
       
     </footer>
@@ -924,7 +1182,7 @@ webpack(webpackConfig, function (err, stats) {
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/05/23/webpack-vue/" data-id="cj356t4x0000cgafydwxp59md" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/05/23/webpack-vue/" data-id="cj5ap4ea9000ehcfy616xt0ko" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1094,7 +1352,7 @@ webpack(webpackConfig, function (err, stats) {
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/05/22/test-e2e/" data-id="cj356t4wu0009gafyllevhvs7" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/05/22/test-e2e/" data-id="cj5ap4ea6000bhcfy5dwr26l5" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1337,7 +1595,7 @@ module.exports = app
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/05/19/test-unit/" data-id="cj356t4wy000bgafyn5161b13" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/05/19/test-unit/" data-id="cj5ap4ea8000dhcfyfsgz1803" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1376,7 +1634,7 @@ module.exports = app
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/05/18/passport/" data-id="cj356t4wt0008gafysbp2dsb1" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/05/18/passport/" data-id="cj5ap4ea20008hcfymy8x9nvp" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1423,7 +1681,7 @@ net:
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/05/18/express-mongodb/" data-id="cj356t4wi0003gafy8andorqf" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/05/18/express-mongodb/" data-id="cj5ap4e9u0004hcfyn65dyct7" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1462,402 +1720,7 @@ app.disable(&quot;view cache&quot;)
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/05/18/express-视图/" data-id="cj356t4wp0006gafy7u4hrgge" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-Http-状态码" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/05/18/Http-状态码/" class="article-date">
-  <time datetime="2017-05-18T01:58:41.000Z" itemprop="datePublished">2017-05-18</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/05/18/Http-状态码/">Http 状态码</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>HTTP 状态诠释，有点意思<br>1xx: hold on<br>2xx: here you go<br>3xx: go away<br>4xx: you messed up<br>5xx: I messed up</p>
-<table>
-<thead>
-<tr>
-<th>状态码</th>
-<th>description</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>100</td>
-<td>Continue</td>
-<td>继续。客户端应继续其请求</td>
-</tr>
-<tr>
-<td>101</td>
-<td>Switching Protocols</td>
-<td>切换协议。服务器根据客户端的请求切换协议。只能切换到更高级的协议，例如，切换到HTTP的新版本协议</td>
-</tr>
-<tr>
-<td>200</td>
-<td>OK</td>
-<td>请求成功。一般用于GET与POST请求</td>
-</tr>
-<tr>
-<td>201</td>
-<td>Created</td>
-<td>已创建。成功请求并创建了新的资源</td>
-</tr>
-<tr>
-<td>202</td>
-<td>Accepted</td>
-<td>已接受。已经接受请求，但未处理完成</td>
-</tr>
-<tr>
-<td>203</td>
-<td>Non-Authoritative Information</td>
-<td>非授权信息。请求成功。但返回的meta信息不在原始的服务器，而是一个副本</td>
-</tr>
-<tr>
-<td>204</td>
-<td>No Content</td>
-<td>无内容。服务器成功处理，但未返回内容。在未更新网页的情况下，可确保浏览器继续显示当前文档</td>
-</tr>
-<tr>
-<td>205</td>
-<td>Reset Content</td>
-<td>重置内容。服务器处理成功，用户终端（例如：浏览器）应重置文档视图。可通过此返回码清除浏览器的表单域</td>
-</tr>
-<tr>
-<td>206</td>
-<td>Partial Content</td>
-<td>部分内容。服务器成功处理了部分GET请求</td>
-</tr>
-<tr>
-<td>300</td>
-<td>Multiple Choices</td>
-<td>多种选择。请求的资源可包括多个位置，相应可返回一个资源特征与地址的列表用于用户终端（例如：浏览器）选择</td>
-</tr>
-<tr>
-<td>301</td>
-<td>Moved Permanently</td>
-<td>永久移动。请求的资源已被永久的移动到新URI，返回信息会包括新的URI，浏览器会自动定向到新URI。今后任何新的请求都应使用新的URI代替</td>
-</tr>
-<tr>
-<td>302</td>
-<td>Found</td>
-<td>临时移动。与301类似。但资源只是临时被移动。客户端应继续使用原有URI</td>
-</tr>
-<tr>
-<td>303</td>
-<td>See Other</td>
-<td>查看其它地址。与301类似。使用GET和POST请求查看</td>
-</tr>
-<tr>
-<td>304</td>
-<td>Not Modified</td>
-<td>未修改。所请求的资源未修改，服务器返回此状态码时，不会返回任何资源。客户端通常会缓存访问过的资源，通过提供一个头信息指出客户端希望只返回在指定日期之后修改的资源</td>
-</tr>
-<tr>
-<td>305</td>
-<td>Use Proxy</td>
-<td>使用代理。所请求的资源必须通过代理访问</td>
-</tr>
-<tr>
-<td>306</td>
-<td>Unused</td>
-<td>已经被废弃的HTTP状态码</td>
-</tr>
-<tr>
-<td>307</td>
-<td>Temporary Redirect</td>
-<td>临时重定向。与302类似。使用GET请求重定向</td>
-</tr>
-<tr>
-<td>400</td>
-<td>Bad Request</td>
-<td>客户端请求的语法错误，服务器无法理解</td>
-</tr>
-<tr>
-<td>401</td>
-<td>Unauthorized</td>
-<td>请求要求用户的身份认证</td>
-</tr>
-<tr>
-<td>402</td>
-<td>Payment Required</td>
-<td>保留，将来使用</td>
-</tr>
-<tr>
-<td>403</td>
-<td>Forbidden</td>
-<td>服务器理解请求客户端的请求，但是拒绝执行此请求</td>
-</tr>
-<tr>
-<td>404</td>
-<td>Not Found</td>
-<td>服务器无法根据客户端的请求找到资源（网页）。通过此代码，网站设计人员可设置”您所请求的资源无法找到”的个性页面</td>
-</tr>
-<tr>
-<td>405</td>
-<td>Method Not Allowed</td>
-<td>客户端请求中的方法被禁止</td>
-</tr>
-<tr>
-<td>406</td>
-<td>Not Acceptable</td>
-<td>服务器无法根据客户端请求的内容特性完成请求</td>
-</tr>
-<tr>
-<td>407</td>
-<td>Proxy Authentication Required</td>
-<td>请求要求代理的身份认证，与401类似，但请求者应当使用代理进行授权</td>
-</tr>
-<tr>
-<td>408</td>
-<td>Request Time-out</td>
-<td>服务器等待客户端发送的请求时间过长，超时</td>
-</tr>
-<tr>
-<td>409</td>
-<td>Conflict</td>
-<td>服务器完成客户端的PUT请求是可能返回此代码，服务器处理请求时发生了冲突</td>
-</tr>
-<tr>
-<td>410</td>
-<td>Gone</td>
-<td>客户端请求的资源已经不存在。410不同于404，如果资源以前有现在被永久删除了可使用410代码，网站设计人员可通过301代码指定资源的新位置</td>
-</tr>
-<tr>
-<td>411</td>
-<td>Length Required</td>
-<td>服务器无法处理客户端发送的不带Content-Length的请求信息</td>
-</tr>
-<tr>
-<td>412</td>
-<td>Precondition Failed</td>
-<td>客户端请求信息的先决条件错误</td>
-</tr>
-<tr>
-<td>413</td>
-<td>Request Entity Too Large</td>
-<td>由于请求的实体过大，服务器无法处理，因此拒绝请求。为防止客户端的连续请求，服务器可能会关闭连接。如果只是服务器暂时无法处理，则会包含一个Retry-After的响应信息</td>
-</tr>
-<tr>
-<td>414</td>
-<td>Request-URI Too Large</td>
-<td>请求的URI过长（URI通常为网址），服务器无法处理</td>
-</tr>
-<tr>
-<td>415</td>
-<td>Unsupported Media Type</td>
-<td>服务器无法处理请求附带的媒体格式</td>
-</tr>
-<tr>
-<td>416</td>
-<td>Requested range not satisfiable</td>
-<td>客户端请求的范围无效</td>
-</tr>
-<tr>
-<td>417</td>
-<td>Expectation Failed</td>
-<td>服务器无法满足Expect的请求头信息</td>
-</tr>
-<tr>
-<td>500</td>
-<td>Internal Server Error</td>
-<td>服务器内部错误，无法完成请求</td>
-</tr>
-<tr>
-<td>501</td>
-<td>Not Implemented</td>
-<td>服务器不支持请求的功能，无法完成请求</td>
-</tr>
-<tr>
-<td>502</td>
-<td>Bad Gateway</td>
-<td>充当网关或代理的服务器，从远端服务器接收到了一个无效的请求</td>
-</tr>
-<tr>
-<td>503</td>
-<td>Service Unavailable</td>
-<td>由于超载或系统维护，服务器暂时的无法处理客户端的请求。延时的长度可包含在服务器的Retry-After头信息中</td>
-</tr>
-<tr>
-<td>504</td>
-<td>Gateway Time-out</td>
-<td>充当网关或代理的服务器，未及时从远端服务器获取请求</td>
-</tr>
-<tr>
-<td>505</td>
-<td>HTTP Version not supported</td>
-<td>服务器不支持请求的HTTP协议的版本，无法完成处理</td>
-</tr>
-</tbody>
-</table>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/05/18/Http-状态码/" data-id="cj356t4wa0002gafyzpxawn40" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-express-router" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/05/17/express-router/" class="article-date">
-  <time datetime="2017-05-17T15:08:15.000Z" itemprop="datePublished">2017-05-17</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/05/17/express-router/">express-router</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="Express-simple"><a href="#Express-simple" class="headerlink" title="Express simple"></a>Express simple</h3><pre><code>app.get(&quot;/users&quot;, function(request, response) {
-response.send(&quot;Users&quot;);
-});
-</code></pre><h3 id="Express-router-带参数"><a href="#Express-router-带参数" class="headerlink" title="Express router 带参数"></a>Express router 带参数</h3><pre><code>app.get(&quot;/users/:userid&quot;, function(req, res) {
-    var userId = parseInt(req.params.userid, 10);
-    // ...
-}
-</code></pre><h3 id="Express-router-用正则匹配，更精细的控制路由"><a href="#Express-router-用正则匹配，更精细的控制路由" class="headerlink" title="Express router 用正则匹配，更精细的控制路由"></a>Express router 用正则匹配，更精细的控制路由</h3><pre><code>app.get(/^\/users\/(\d+)$/, function(req, res) {
-    var userId = parseInt(req.params[0], 10);
-    // ...
-});
-</code></pre><p><strong><em>users/</em></strong> 后面带的参数必须为数字</p>
-<pre><code>app.get(/^\/users\/(\d+)-(\d+)$/, function(req, res) {
-    var startId = parseInt(req.params[0], 10);
-    var endId = parseInt(req.params[1], 10);
-    // ...
-});
-</code></pre><p>匹配路由 <strong><em>/users/100-500</em></strong></p>
-<h3 id="Express-router-获取查询参数"><a href="#Express-router-获取查询参数" class="headerlink" title="Express router  获取查询参数"></a>Express router  获取查询参数</h3><p><strong><em>／search?keywords=nodejs</em></strong> 通过req.query[‘key’] 获取查询参数</p>
-<pre><code>app.get(&quot;/search&quot;, function(req, res) {
-   var keywords = req.query.keywords 
-// ...
-});
-</code></pre><hr>
-<h3 id="使用router-分割应用"><a href="#使用router-分割应用" class="headerlink" title="使用router 分割应用"></a>使用router 分割应用</h3><blockquote>
-<p>A router is an isolated instance of middleware and routes. Routers can be<br>thought of as “mini” applications only capable of performing middleware<br>and routing. Every express application has a built-in app router.</p>
-</blockquote>
-<p>Routers 可以表现的像中间件，通过.use() 组合到应用中。简而言之，router 将原本庞大的应用分割成一个个mini应用，<br>然后一个个mini应用可以通过类似中间件的方式，将它们拼凑起来，组成一个大型应用。其实router 就是一个基础的middleware。</p>
-<h4 id="子路由"><a href="#子路由" class="headerlink" title="子路由"></a>子路由</h4><pre><code>var express = require(&quot;express&quot;);
-var api = express.Router();
-api.use(function(req, res, next) {
-    // doing something
-    next();
-});
-api.get(&quot;/users&quot;, function(req, res) { /* ... */ });
-api.post(&quot;/user&quot;, function(req, res) { /* ... */ });
-module.exports = api;
-</code></pre><p> 这看起来就像一个mini的应用，他支持中间件和路由，但他不能单独运行，只能插入到主应用当中去，通过这种方式，就能将应用分割成各个部分了</p>
-<hr>
-<h3 id="express-static-中间件"><a href="#express-static-中间件" class="headerlink" title="express.static 中间件"></a>express.static 中间件</h3><pre><code>var publicPath = path.resolve(__dirname, &quot;public&quot;);
-app.use(express.static(publicPath));
-</code></pre><p>设置静态文件夹，path.resolve 支持跨平台的路径解析。默认静态文件夹设置在网站的根目录，然饿你也可以指定静态文件夹的位置。幸运的是Expres中间件可以指定mount的位置，以为着中间件只在制定的位置做出响应。</p>
-<blockquote>
-<p>Note that this can be done for any middleware, not only the static file middleware.</p>
-</blockquote>
-<pre><code>var publicPath = path.resolve(__dirname, &quot;public&quot;);
-app.use(&apos;/admin&apos;,express.static(publicPath));
-</code></pre><p>使用多个静态文件夹 ，because express.static is middleware, you can just apply it multiple times</p>
-<pre><code>var publicPath = path.resolve(__dirname, &quot;public&quot;);
-var userUploadsPath = path.resolve(__dirname, &quot;user_uploads&quot;);
-app.use(express.static(publicPath));
-app.use(express.static(userUploadsPath));
-</code></pre><p> 因为指定了多个静态文件夹，请求会在这多个文件夹里寻找匹配的资源，找到第一个之后即结束了响应，如果多个文件夹里有重名的资源，就有可能返回错误的资源。所以当有多个静态文件夹时，一般可以通过指定路径的方式来避免冲突。</p>
-<pre><code>app.use(&quot;/public&quot;, express.static(publicPath));
-app.use(&quot;/uploads&quot;, express.static(userUploadsPath));    
-</code></pre>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/05/17/express-router/" data-id="cj356t4wl0004gafydgjzklh7" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-Express-常用中间件" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/05/17/Express-常用中间件/" class="article-date">
-  <time datetime="2017-05-17T09:52:01.000Z" itemprop="datePublished">2017-05-17</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/05/17/Express-常用中间件/">Express 常用中间件</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="Express-常用中间件"><a href="#Express-常用中间件" class="headerlink" title="Express 常用中间件"></a>Express 常用中间件</h3><hr>
-<ul>
-<li>body-parser </li>
-<li>cookie-parser</li>
-<li>compression</li>
-<li>Helmet</li>
-<li>connect-assets</li>
-<li>bcrypt-nodejs  用于用户密码等的加密</li>
-<li>connect-flash</li>
-<li>passport 用于用户的验证</li>
-<li>passport-local 验证策略</li>
-<li>mongoose </li>
-<li>pug</li>
-<li>passport</li>
-</ul>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/05/17/Express-常用中间件/" data-id="cj356t4w10000gafy7dnzbp38" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/05/18/express-视图/" data-id="cj5ap4e9v0005hcfyk0gknikr" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1888,7 +1751,7 @@ app.use(&quot;/uploads&quot;, express.static(userUploadsPath));
   <div class="widget-wrap">
     <h3 class="widget-title">归档</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">五月 2017</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">七月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">六月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">五月 2017</a></li></ul>
     </div>
   </div>
 
@@ -1901,23 +1764,23 @@ app.use(&quot;/uploads&quot;, express.static(userUploadsPath));
       <ul>
         
           <li>
+            <a href="/2017/07/10/Collaborative-Web-Development/">Collaborative Web Development</a>
+          </li>
+        
+          <li>
+            <a href="/2017/06/29/react-函数/">react-函数</a>
+          </li>
+        
+          <li>
+            <a href="/2017/06/08/research/">research</a>
+          </li>
+        
+          <li>
             <a href="/2017/05/25/webpack-action/">webpack 在自己项目中的配置和使用</a>
           </li>
         
           <li>
             <a href="/2017/05/23/webpack-vue/">了解vue2中webpack的相关配置</a>
-          </li>
-        
-          <li>
-            <a href="/2017/05/22/test-e2e/">test-e2e</a>
-          </li>
-        
-          <li>
-            <a href="/2017/05/19/test-unit/">test unit</a>
-          </li>
-        
-          <li>
-            <a href="/2017/05/18/passport/">passport</a>
           </li>
         
       </ul>
