@@ -68,6 +68,92 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-express-mongodb" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/05/18/express-mongodb/" class="article-date">
+  <time datetime="2017-05-18T03:27:08.000Z" itemprop="datePublished">2017-05-18</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/05/18/express-mongodb/">express+mongodb</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>express 程序和 mongodb 的结构<br><img src="/2017/05/18/express-mongodb/structure.png" alt="structure"></p>
+<h3 id="mongo-配置文件-mongod-conf"><a href="#mongo-配置文件-mongod-conf" class="headerlink" title="mongo 配置文件 mongod.conf"></a>mongo 配置文件 mongod.conf</h3><pre><code>systemLog:
+    destination: file
+    path: &quot;/var/log/mongodb/mongod.log&quot;
+    logAppend: true
+storage:
+    dbPath: &quot;/data/db&quot;
+net:
+    bindIp: 127.0.0.1
+    port: 27017
+</code></pre><h3 id="启动mongo"><a href="#启动mongo" class="headerlink" title="启动mongo"></a>启动mongo</h3><p>mongod –config /etc/mongod.conf        </p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/05/18/express-mongodb/" data-id="cj5deihxk00058gve6zhcwsuy" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-express-视图" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/05/18/express-视图/" class="article-date">
+  <time datetime="2017-05-18T03:02:49.000Z" itemprop="datePublished">2017-05-18</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/05/18/express-视图/">express 视图</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="Expres时-视图选择上还是选择PUG比较好，语法简介，有layout，mixins功能"><a href="#Expres时-视图选择上还是选择PUG比较好，语法简介，有layout，mixins功能" class="headerlink" title="Expres时 视图选择上还是选择PUG比较好，语法简介，有layout，mixins功能"></a>Expres时 视图选择上还是选择PUG比较好，语法简介，有layout，mixins功能</h3><p>express 每次render的时候都会创建新的对象交给视图引擎渲染，express 可以设置视图的缓存，而不用每次都重新渲染</p>
+<pre><code>app.enabled(&quot;view cache&quot;)
+app.disable(&quot;view cache&quot;)
+</code></pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/05/18/express-视图/" data-id="cj5deihxp00078gve36u6tp2o" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-Http-状态码" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2017/05/18/Http-状态码/" class="article-date">
@@ -311,7 +397,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/05/18/Http-状态码/" data-id="cj5ap9jrl0002lrfy2ickh0cr" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/05/18/Http-状态码/" data-id="cj5deihxb00028gvelmng2osd" class="article-share-link">Share</a>
       
       
     </footer>
@@ -402,7 +488,7 @@ app.use(&quot;/uploads&quot;, express.static(userUploadsPath));
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/05/17/express-router/" data-id="cj5ap9jry0006lrfy1fj4x3j6" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/05/17/express-router/" data-id="cj5deihxo00068gve5s9wow5t" class="article-share-link">Share</a>
       
       
     </footer>
@@ -453,7 +539,7 @@ app.use(&quot;/uploads&quot;, express.static(userUploadsPath));
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/05/17/Express-常用中间件/" data-id="cj5ap9jrj0001lrfyb9ktejrp" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/05/17/Express-常用中间件/" data-id="cj5deihx800018gves9e3k65c" class="article-share-link">Share</a>
       
       
     </footer>
@@ -500,7 +586,7 @@ app.use(&quot;/uploads&quot;, express.static(userUploadsPath));
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/05/17/express-middleware/" data-id="cj5ap9jrr0004lrfyyb00t7sw" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/05/17/express-middleware/" data-id="cj5deihxi00048gvemz4w7yj6" class="article-share-link">Share</a>
       
       
     </footer>
@@ -536,7 +622,7 @@ app.use(&quot;/uploads&quot;, express.static(userUploadsPath));
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/05/16/Welcome/" data-id="cj5ap9jrp0003lrfywbgfx7um" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/05/16/Welcome/" data-id="cj5deihxg00038gveag5b3ivy" class="article-share-link">Share</a>
       
       
     </footer>
@@ -581,7 +667,7 @@ app.use(&quot;/uploads&quot;, express.static(userUploadsPath));
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/05/16/hello-world/" data-id="cj5ap9jrz0007lrfytqtkmtny" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/05/16/hello-world/" data-id="cj5deihxr00088gvecbjbq9xn" class="article-share-link">Share</a>
       
       
     </footer>
@@ -625,6 +711,14 @@ app.use(&quot;/uploads&quot;, express.static(userUploadsPath));
       <ul>
         
           <li>
+            <a href="/2017/07/21/wap和app页面项目的一些整理/">wap和app页面项目的一些整理</a>
+          </li>
+        
+          <li>
+            <a href="/2017/07/21/微信分享/">微信分享</a>
+          </li>
+        
+          <li>
             <a href="/2017/07/10/Collaborative-Web-Development/">Collaborative Web Development</a>
           </li>
         
@@ -634,14 +728,6 @@ app.use(&quot;/uploads&quot;, express.static(userUploadsPath));
         
           <li>
             <a href="/2017/06/08/research/">research</a>
-          </li>
-        
-          <li>
-            <a href="/2017/05/25/webpack-action/">webpack 在自己项目中的配置和使用</a>
-          </li>
-        
-          <li>
-            <a href="/2017/05/23/webpack-vue/">了解vue2中webpack的相关配置</a>
           </li>
         
       </ul>

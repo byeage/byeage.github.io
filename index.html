@@ -68,6 +68,279 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-wap和app页面项目的一些整理" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/07/21/wap和app页面项目的一些整理/" class="article-date">
+  <time datetime="2017-07-21T01:57:05.000Z" itemprop="datePublished">2017-07-21</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/07/21/wap和app页面项目的一些整理/">wap和app页面项目的一些整理</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ol>
+<li>分平台 <ul>
+<li>app</li>
+<li>wap</li>
+</ul>
+</li>
+<li>分设备 <ul>
+<li>ios</li>
+<li>andriod</li>
+</ul>
+</li>
+</ol>
+<p>多数情况，在不同的平台下需要显示不同的内容</p>
+<ol>
+<li>一般在wap下需要显示财新的头部导航栏和底部的版权信息栏。 app则无需头尾。</li>
+<li>在不同的平台下有不同的需求设置，如在app下微信分享的内容和wap端微信分享的内容设置方式是不同的。</li>
+<li>一些组建插件在不同的平台和不同的设备上表现存在差异，可能需要做响应的调整。</li>
+</ol>
+<p>建议在应用中设置一份配置文件 设置相关常量</p>
+<p>exp:</p>
+<pre><code>const platform = ...   // 平台类型
+const device = ...     // 设备类型
+const deviceWidth = ... // 设备宽度
+...
+</code></pre><h2 id="信息梳理"><a href="#信息梳理" class="headerlink" title="信息梳理"></a>信息梳理</h2><p><strong>比较繁琐的一部分是分享的页面信息，还需要经常修改</strong></p>
+<ol>
+<li>页面标题 title</li>
+<li>页面 keywords</li>
+<li>页面 description</li>
+<li>微信分享到朋友的标题</li>
+<li>微信分享到朋友圈的标题</li>
+<li>分享内容等缩略图</li>
+</ol>
+<p>最好能事先根据相关页面收集整理出以上信息做成Excel，然后相关微信分享信息可以参考上篇微信分享，如果手头没有类似信息可以找产品</p>
+<p>夜间模式和白天模式，这个应该是属于应用一个状态。相关信息存储在cookie中，键名isNightMode，</p>
+<ul>
+<li>isNightMode = 1夜间模式</li>
+<li>isNightMode = 0 白天模式</li>
+</ul>
+<h2 id="夜间模式的相关设置"><a href="#夜间模式的相关设置" class="headerlink" title="夜间模式的相关设置"></a>夜间模式的相关设置</h2><p>应用启动时，可以从cookie里读取相关cookie并判断其值再做设置。简单来说可以在html里最外面一层设置一个class和id。简单可以用一个night.css来覆盖白天模式的样式。精细一点的可以在每个组件里就写好夜间白天模式的相关样式。<br>当我们的页面嵌入在**app里时当app设置完日夜间模式时，我们的页面需要刷新一下才会显示成日夜间模式。解决这个问题可以在html页面里调用app的相关方法</p>
+<pre><code>exp: 这段代码也有些不同，我们的页面作为iframe嵌入在他们的页面里。app设置完日夜间模式后默认会调用setNightMode的方法，在我们的应用场景下，这段代码还是写在他们页面里，所以就只能刷新iframe来实现了
+   var ifr = document.getElementById(&quot;iframe&quot;) // 获取页面iframe 
+    function setNightMode(mode){
+      if(mode == &quot;night&quot;){
+       document.body.className = &quot;night&quot;;
+       var nightUrl = ifr.src;
+       nightUrl = nightUrl.replace(/&amp;isNight=1|\?isNight=1|&amp;isNight=0|\?isNight=0/g,&quot;&quot;);
+       if(nightUrl.indexOf(&quot;?&quot;) != -1){
+        ifr.src = nightUrl + &quot;&amp;isNight=1&quot;;
+       } else {
+        ifr.src = nightUrl + &quot;?isNight=1&quot;;
+       }
+       isNightMode = &quot;1&quot;
+      } else {
+       document.body.className = &quot;&quot;;
+       var dayUrl = ifr.src;
+       dayUrl = dayUrl.replace(/&amp;isNight=1|\?isNight=1|&amp;isNight=0|\?isNight=0/g,&quot;&quot;);
+       ifr.src = dayUrl
+       isNightMode = &quot;0&quot;
+      }
+     }
+</code></pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/07/21/wap和app页面项目的一些整理/" data-id="cj5deihxx000e8gvea9yaxuf5" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-微信分享" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/07/21/微信分享/" class="article-date">
+  <time datetime="2017-07-21T01:33:09.000Z" itemprop="datePublished">2017-07-21</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/07/21/微信分享/">微信分享</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="app分享内容设置"><a href="#app分享内容设置" class="headerlink" title="**app分享内容设置"></a>**app分享内容设置</h1><ol>
+<li><p>app内容分享设置，app 里调用的不是js-sdk的方法，app里应该设置好了相关的功能，然后前端填值就可以了。然后app在根据页面里的内容读取相关信息</p>
+<pre><code>let shareStr = `
+&lt;div class=&quot;wechat-share&quot; style=&quot;display: none;width:0;height:0;overflow: hidden;&quot;&gt;
+&lt;div style=&quot;display:none&quot; id=&quot;__cxnewsapp_topbar&quot;&gt;true&lt;/div&gt;
+ &lt;div style=&quot;display:none&quot; id=&quot;__cxnewsapp_orientation&quot;&gt;flexible&lt;/div&gt;
+ &lt;div style=&quot;display:none&quot; id=&quot;__cxnewsapp_sharetext&quot;&gt;${shareText}&lt;/div&gt;
+ &lt;div style=&quot;display:none&quot; id=&quot;__cxnewsapp_sharephotourl&quot;&gt;${sharePhotoUrl}&lt;/div&gt;
+ &lt;div style=&quot;display:none&quot; id=&quot;__cxnewsapp_sharewxurl&quot;&gt;${shareWxLink}&lt;/div&gt;
+ &lt;div style=&quot;display:none&quot; id=&quot;__cxnewsapp_sharewxthumburl&quot;&gt;${shareWxImgUrl}&lt;/div&gt;
+ &lt;div style=&quot;display:none&quot; id=&quot;__cxnewsapp_sharewxtitle&quot;&gt;${shareWxTitle}&lt;/div&gt;
+ &lt;div style=&quot;display:none&quot; id=&quot;__cxnewsapp_sharewxtext&quot;&gt;${shareWxDesc}&lt;/div&gt;
+&lt;/div&gt;
+`
+</code></pre><p> 上面字符串的变量应该不难理解</p>
+<ul>
+<li>shareText 分享的描述,  非微信</li>
+<li>sharePhotoUrl 分享的缩略图链接，需要以<a href="http://***" target="_blank" rel="external">http://***</a> 的链接地址</li>
+<li>shareWxLink 微信分享分享的链接地址</li>
+<li>shareWxImgUrl 微信分享的缩略图</li>
+<li>shareWxTitle 微信分享标题</li>
+<li>shareWxDesc 微信分享描述</li>
+</ul>
+</li>
+</ol>
+<p>最后设置好上述的内容后需要将上述的内容添加到页面当中去</p>
+<p>exp:<br>    <img src="/2017/07/21/微信分享/appshare.jpg" alt="share"></p>
+<p>然而在单页应用里，每一个地址代表不同的页面，页面不同分享的内容也不同，意味着需要在每个路由下面分别去设置该页面对应的分享内容。<br>在Vue单页中，可以在vue-router的钩子 router.afterEach  之中去做相关简易的设置。一些需要根据网页内容动态生产分享内容页面可以做额外的设置。重点不在哪里设置，在于页面对应的路由下调用分享方法设置分享内容</p>
+<h1 id="微信web分享"><a href="#微信web分享" class="headerlink" title="微信web分享"></a>微信web分享</h1><p>微信web分享调用的是微信的js-SDK 所有预先得在页面中引入相关js并作相应的配置</p>
+<ul>
+<li>引入js <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script></li>
+<li><p>调用配置方法</p>
+<pre><code>  getWXConfig () {
+  let url = `http://api.caixin.com/wxsdk/wxconfig.php`
+  let params = {
+    url: window.location.href
+  }
+  this.$http.jsonp(url, {
+    params: params,
+    jsonp: &apos;callback&apos;
+  })
+    .then((res) =&gt; {
+      let data = res.body
+      /* global wx:true */
+      wx.config({
+        debug: false,
+        appId: data.appId,
+        timestamp: data.timestamp,
+        nonceStr: data.nonceStr,
+        signature: data.signature,
+        jsApiList: [
+          &apos;onMenuShareTimeline&apos;,
+          &apos;onMenuShareAppMessage&apos;,
+          &apos;onMenuShareQQ&apos;,
+          &apos;onMenuShareWeibo&apos;,
+          &apos;startRecord&apos;,
+          &apos;stopRecord&apos;,
+          &apos;onVoiceRecordEnd&apos;,
+          &apos;playVoice&apos;,
+          &apos;pauseVoice&apos;,
+          &apos;stopVoice&apos;,
+          &apos;translateVoice&apos;,
+          &apos;uploadVoice&apos;
+        ]
+      })
+    })
+}
+</code></pre></li>
+</ul>
+<p>配置的方法只需要在页面加载中微信内容分享设置之前调用一次配置完即可，不需要再次配置</p>
+<ul>
+<li>方法同app，在每个需要分享的路由下调用分享方法设置分享内容</li>
+</ul>
+<p>分享方法：</p>
+<pre><code>function shareWapContent (data) {
+      console.log(&apos;share&apos;)
+      console.log(data)
+      /* global wx:true */
+      if (typeof (wx) !== &apos;undefined&apos;) {
+        wx.ready(function () {
+          wx.onMenuShareTimeline({
+            title: data.shareWxTitle, // 分享标题
+            desc: data.shareWxDesc, // 分享描述
+            link: data.shareWxLink, // 分享链接
+            imgUrl: data.shareWxImgUrl, // 分享图标
+            type: &apos;&apos;, // 分享类型,music、video或link，不填默认为link
+            dataUrl: &apos;&apos;, // 如果type是music或video，则要提供数据链接，默认为空
+            success: function () {
+              //
+            },
+            cancel: function () {
+              // 用户取消分享后执行的回调函数
+            }
+          })
+          wx.onMenuShareAppMessage({
+            title: data.shareWxTitleFriend, // 分享标题
+            desc: data.shareWxDesc, // 分享描述
+            link: data.shareWxLink, // 分享链接
+            imgUrl: data.shareWxImgUrl, // 分享图标
+            type: &apos;&apos;, // 分享类型,music、video或link，不填默认为link
+            dataUrl: &apos;&apos;, // 如果type是music或video，则要提供数据链接，默认为空
+            success: function () {
+              //
+            },
+            cancel: function () {
+              // 用户取消分享后执行的回调函数
+            }
+          })
+          wx.onMenuShareQQ({
+            title: data.shareTitle, // 分享标题
+            desc: data.shareWxDesc, // 分享描述
+            link: data.shareWxLink, // 分享链接
+            imgUrl: data.shareWxImgUrl, // 分享图标
+            success: function () {
+              //
+            },
+            cancel: function () {
+              // 用户取消分享后执行的回调函数
+            }
+          })
+          wx.onMenuShareWeibo({
+            title: data.shareText, // 分享标题
+            desc: data.shareWxDesc, // 分享描述
+            link: data.shareWxLink, // 分享链接
+            imgUrl: data.shareWxImgUrl, // 分享图标
+            success: function () {
+              //
+            },
+            cancel: function () {
+              // 用户取消分享后执行的回调函数
+            }
+          })
+        })
+      }
+    }
+</code></pre><h1 id="浏览器默认分享"><a href="#浏览器默认分享" class="headerlink" title="浏览器默认分享"></a>浏览器默认分享</h1><ol>
+<li>浏览器默认自带分享不能设置相关描述</li>
+<li>浏览器默认分享标题即页面中的title内容</li>
+<li>浏览器默认分享到微信的缩略图默认是页面中第一张图片大于300*300的图片，图片的设置也需要有一定的技巧方法可参考<a href="https://www.caiyiming.com/article/201702231619.html" target="_blank" rel="external">https://www.caiyiming.com/article/201702231619.html</a><br>原理也同上，在每个需要分享的路由下设置相应内容</li>
+</ol>
+<h1 id="在分享的页面中不要存在caixin同名的js变量名，可能是变量名冲突导致安卓分享实效"><a href="#在分享的页面中不要存在caixin同名的js变量名，可能是变量名冲突导致安卓分享实效" class="headerlink" title="在分享的页面中不要存在caixin同名的js变量名，可能是变量名冲突导致安卓分享实效"></a>在分享的页面中不要存在caixin同名的js变量名，可能是变量名冲突导致安卓分享实效</h1>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/07/21/微信分享/" data-id="cj5deihxy000g8gve9ltjs70x" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-Collaborative-Web-Development" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2017/07/10/Collaborative-Web-Development/" class="article-date">
@@ -196,7 +469,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/07/10/Collaborative-Web-Development/" data-id="cj5ap9jrf0000lrfyueioyl7c" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/07/10/Collaborative-Web-Development/" data-id="cj5deihx400008gvedmrmgdex" class="article-share-link">Share</a>
       
       
     </footer>
@@ -276,7 +549,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/06/29/react-函数/" data-id="cj5ap9js4000alrfyj84aiazz" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/06/29/react-函数/" data-id="cj5deihxs000a8gveuq6z38fg" class="article-share-link">Share</a>
       
       
     </footer>
@@ -316,7 +589,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/06/08/research/" data-id="cj5ap9jss000blrfybkjalm1l" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/06/08/research/" data-id="cj5deihxu000b8gvex807mb17" class="article-share-link">Share</a>
       
       
     </footer>
@@ -376,7 +649,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/05/25/webpack-action/" data-id="cj5ap9jsw000elrfyqytregve" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/05/25/webpack-action/" data-id="cj5deihxy000f8gvefwyj5ycm" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1182,7 +1455,7 @@ webpack(webpackConfig, function (err, stats) {
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/05/23/webpack-vue/" data-id="cj5ap9jsx000flrfywldwdi9n" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/05/23/webpack-vue/" data-id="cj5deihy0000h8gveuba1kq7y" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1352,7 +1625,7 @@ webpack(webpackConfig, function (err, stats) {
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/05/22/test-e2e/" data-id="cj5ap9jsv000dlrfysouxgcfo" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/05/22/test-e2e/" data-id="cj5deihxv000c8gvedrd3pplv" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1595,7 +1868,7 @@ module.exports = app
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/05/19/test-unit/" data-id="cj5ap9jst000clrfyoloc0c3s" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/05/19/test-unit/" data-id="cj5deihxx000d8gvem9i1nc0y" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1634,93 +1907,7 @@ module.exports = app
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/05/18/passport/" data-id="cj5ap9js10008lrfyhygtnlvh" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-express-mongodb" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/05/18/express-mongodb/" class="article-date">
-  <time datetime="2017-05-18T03:27:08.000Z" itemprop="datePublished">2017-05-18</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/05/18/express-mongodb/">express+mongodb</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>express 程序和 mongodb 的结构<br><img src="/2017/05/18/express-mongodb/structure.png" alt="structure"></p>
-<h3 id="mongo-配置文件-mongod-conf"><a href="#mongo-配置文件-mongod-conf" class="headerlink" title="mongo 配置文件 mongod.conf"></a>mongo 配置文件 mongod.conf</h3><pre><code>systemLog:
-    destination: file
-    path: &quot;/var/log/mongodb/mongod.log&quot;
-    logAppend: true
-storage:
-    dbPath: &quot;/data/db&quot;
-net:
-    bindIp: 127.0.0.1
-    port: 27017
-</code></pre><h3 id="启动mongo"><a href="#启动mongo" class="headerlink" title="启动mongo"></a>启动mongo</h3><p>mongod –config /etc/mongod.conf        </p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/05/18/express-mongodb/" data-id="cj5ap9jru0005lrfyempemnge" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-express-视图" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/05/18/express-视图/" class="article-date">
-  <time datetime="2017-05-18T03:02:49.000Z" itemprop="datePublished">2017-05-18</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/05/18/express-视图/">express 视图</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="Expres时-视图选择上还是选择PUG比较好，语法简介，有layout，mixins功能"><a href="#Expres时-视图选择上还是选择PUG比较好，语法简介，有layout，mixins功能" class="headerlink" title="Expres时 视图选择上还是选择PUG比较好，语法简介，有layout，mixins功能"></a>Expres时 视图选择上还是选择PUG比较好，语法简介，有layout，mixins功能</h3><p>express 每次render的时候都会创建新的对象交给视图引擎渲染，express 可以设置视图的缓存，而不用每次都重新渲染</p>
-<pre><code>app.enabled(&quot;view cache&quot;)
-app.disable(&quot;view cache&quot;)
-</code></pre>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/05/18/express-视图/" data-id="cj5ap9js20009lrfyenofb98l" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/05/18/passport/" data-id="cj5deihxr00098gve67dirmh1" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1764,6 +1951,14 @@ app.disable(&quot;view cache&quot;)
       <ul>
         
           <li>
+            <a href="/2017/07/21/wap和app页面项目的一些整理/">wap和app页面项目的一些整理</a>
+          </li>
+        
+          <li>
+            <a href="/2017/07/21/微信分享/">微信分享</a>
+          </li>
+        
+          <li>
             <a href="/2017/07/10/Collaborative-Web-Development/">Collaborative Web Development</a>
           </li>
         
@@ -1773,14 +1968,6 @@ app.disable(&quot;view cache&quot;)
         
           <li>
             <a href="/2017/06/08/research/">research</a>
-          </li>
-        
-          <li>
-            <a href="/2017/05/25/webpack-action/">webpack 在自己项目中的配置和使用</a>
-          </li>
-        
-          <li>
-            <a href="/2017/05/23/webpack-vue/">了解vue2中webpack的相关配置</a>
           </li>
         
       </ul>

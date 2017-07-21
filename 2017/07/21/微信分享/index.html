@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>微信分享 | Byeage Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="**app分享内容设置 app内容分享设置，app 里调用的不是js-sdk的方法，app里应该设置好了相关的功能，然后前端填值就可以了。然后app在根据页面里的内容读取相关信息 let shareStr = ` &amp;lt;div class=&amp;quot;wechat-share&amp;quot; style=&amp;quot;display: none;width:0;height:0;overflow: h">
+<meta property="og:type" content="article">
+<meta property="og:title" content="微信分享">
+<meta property="og:url" content="http://yoursite.com/2017/07/21/微信分享/index.html">
+<meta property="og:site_name" content="Byeage Blog">
+<meta property="og:description" content="**app分享内容设置 app内容分享设置，app 里调用的不是js-sdk的方法，app里应该设置好了相关的功能，然后前端填值就可以了。然后app在根据页面里的内容读取相关信息 let shareStr = ` &amp;lt;div class=&amp;quot;wechat-share&amp;quot; style=&amp;quot;display: none;width:0;height:0;overflow: h">
+<meta property="og:image" content="http://yoursite.com/2017/07/21/微信分享/appshare.jpg">
+<meta property="og:updated_time" content="2017-07-21T01:39:18.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="微信分享">
+<meta name="twitter:description" content="**app分享内容设置 app内容分享设置，app 里调用的不是js-sdk的方法，app里应该设置好了相关的功能，然后前端填值就可以了。然后app在根据页面里的内容读取相关信息 let shareStr = ` &amp;lt;div class=&amp;quot;wechat-share&amp;quot; style=&amp;quot;display: none;width:0;height:0;overflow: h">
+<meta name="twitter:image" content="http://yoursite.com/2017/07/21/微信分享/appshare.jpg">
+  
+    <link rel="alternate" href="/atom.xml" title="Byeage Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Byeage Blog</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">白痴总得加把劲</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-微信分享" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/07/21/微信分享/" class="article-date">
+  <time datetime="2017-07-21T01:33:09.000Z" itemprop="datePublished">2017-07-21</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      微信分享
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="app分享内容设置"><a href="#app分享内容设置" class="headerlink" title="**app分享内容设置"></a>**app分享内容设置</h1><ol>
+<li><p>app内容分享设置，app 里调用的不是js-sdk的方法，app里应该设置好了相关的功能，然后前端填值就可以了。然后app在根据页面里的内容读取相关信息</p>
+<pre><code>let shareStr = `
+&lt;div class=&quot;wechat-share&quot; style=&quot;display: none;width:0;height:0;overflow: hidden;&quot;&gt;
+&lt;div style=&quot;display:none&quot; id=&quot;__cxnewsapp_topbar&quot;&gt;true&lt;/div&gt;
+ &lt;div style=&quot;display:none&quot; id=&quot;__cxnewsapp_orientation&quot;&gt;flexible&lt;/div&gt;
+ &lt;div style=&quot;display:none&quot; id=&quot;__cxnewsapp_sharetext&quot;&gt;${shareText}&lt;/div&gt;
+ &lt;div style=&quot;display:none&quot; id=&quot;__cxnewsapp_sharephotourl&quot;&gt;${sharePhotoUrl}&lt;/div&gt;
+ &lt;div style=&quot;display:none&quot; id=&quot;__cxnewsapp_sharewxurl&quot;&gt;${shareWxLink}&lt;/div&gt;
+ &lt;div style=&quot;display:none&quot; id=&quot;__cxnewsapp_sharewxthumburl&quot;&gt;${shareWxImgUrl}&lt;/div&gt;
+ &lt;div style=&quot;display:none&quot; id=&quot;__cxnewsapp_sharewxtitle&quot;&gt;${shareWxTitle}&lt;/div&gt;
+ &lt;div style=&quot;display:none&quot; id=&quot;__cxnewsapp_sharewxtext&quot;&gt;${shareWxDesc}&lt;/div&gt;
+&lt;/div&gt;
+`
+</code></pre><p> 上面字符串的变量应该不难理解</p>
+<ul>
+<li>shareText 分享的描述,  非微信</li>
+<li>sharePhotoUrl 分享的缩略图链接，需要以<a href="http://***" target="_blank" rel="external">http://***</a> 的链接地址</li>
+<li>shareWxLink 微信分享分享的链接地址</li>
+<li>shareWxImgUrl 微信分享的缩略图</li>
+<li>shareWxTitle 微信分享标题</li>
+<li>shareWxDesc 微信分享描述</li>
+</ul>
+</li>
+</ol>
+<p>最后设置好上述的内容后需要将上述的内容添加到页面当中去</p>
+<p>exp:<br>    <img src="/2017/07/21/微信分享/appshare.jpg" alt="share"></p>
+<p>然而在单页应用里，每一个地址代表不同的页面，页面不同分享的内容也不同，意味着需要在每个路由下面分别去设置该页面对应的分享内容。<br>在Vue单页中，可以在vue-router的钩子 router.afterEach  之中去做相关简易的设置。一些需要根据网页内容动态生产分享内容页面可以做额外的设置。重点不在哪里设置，在于页面对应的路由下调用分享方法设置分享内容</p>
+<h1 id="微信web分享"><a href="#微信web分享" class="headerlink" title="微信web分享"></a>微信web分享</h1><p>微信web分享调用的是微信的js-SDK 所有预先得在页面中引入相关js并作相应的配置</p>
+<ul>
+<li>引入js <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script></li>
+<li><p>调用配置方法</p>
+<pre><code>  getWXConfig () {
+  let url = `http://api.caixin.com/wxsdk/wxconfig.php`
+  let params = {
+    url: window.location.href
+  }
+  this.$http.jsonp(url, {
+    params: params,
+    jsonp: &apos;callback&apos;
+  })
+    .then((res) =&gt; {
+      let data = res.body
+      /* global wx:true */
+      wx.config({
+        debug: false,
+        appId: data.appId,
+        timestamp: data.timestamp,
+        nonceStr: data.nonceStr,
+        signature: data.signature,
+        jsApiList: [
+          &apos;onMenuShareTimeline&apos;,
+          &apos;onMenuShareAppMessage&apos;,
+          &apos;onMenuShareQQ&apos;,
+          &apos;onMenuShareWeibo&apos;,
+          &apos;startRecord&apos;,
+          &apos;stopRecord&apos;,
+          &apos;onVoiceRecordEnd&apos;,
+          &apos;playVoice&apos;,
+          &apos;pauseVoice&apos;,
+          &apos;stopVoice&apos;,
+          &apos;translateVoice&apos;,
+          &apos;uploadVoice&apos;
+        ]
+      })
+    })
+}
+</code></pre></li>
+</ul>
+<p>配置的方法只需要在页面加载中微信内容分享设置之前调用一次配置完即可，不需要再次配置</p>
+<ul>
+<li>方法同app，在每个需要分享的路由下调用分享方法设置分享内容</li>
+</ul>
+<p>分享方法：</p>
+<pre><code>function shareWapContent (data) {
+      console.log(&apos;share&apos;)
+      console.log(data)
+      /* global wx:true */
+      if (typeof (wx) !== &apos;undefined&apos;) {
+        wx.ready(function () {
+          wx.onMenuShareTimeline({
+            title: data.shareWxTitle, // 分享标题
+            desc: data.shareWxDesc, // 分享描述
+            link: data.shareWxLink, // 分享链接
+            imgUrl: data.shareWxImgUrl, // 分享图标
+            type: &apos;&apos;, // 分享类型,music、video或link，不填默认为link
+            dataUrl: &apos;&apos;, // 如果type是music或video，则要提供数据链接，默认为空
+            success: function () {
+              //
+            },
+            cancel: function () {
+              // 用户取消分享后执行的回调函数
+            }
+          })
+          wx.onMenuShareAppMessage({
+            title: data.shareWxTitleFriend, // 分享标题
+            desc: data.shareWxDesc, // 分享描述
+            link: data.shareWxLink, // 分享链接
+            imgUrl: data.shareWxImgUrl, // 分享图标
+            type: &apos;&apos;, // 分享类型,music、video或link，不填默认为link
+            dataUrl: &apos;&apos;, // 如果type是music或video，则要提供数据链接，默认为空
+            success: function () {
+              //
+            },
+            cancel: function () {
+              // 用户取消分享后执行的回调函数
+            }
+          })
+          wx.onMenuShareQQ({
+            title: data.shareTitle, // 分享标题
+            desc: data.shareWxDesc, // 分享描述
+            link: data.shareWxLink, // 分享链接
+            imgUrl: data.shareWxImgUrl, // 分享图标
+            success: function () {
+              //
+            },
+            cancel: function () {
+              // 用户取消分享后执行的回调函数
+            }
+          })
+          wx.onMenuShareWeibo({
+            title: data.shareText, // 分享标题
+            desc: data.shareWxDesc, // 分享描述
+            link: data.shareWxLink, // 分享链接
+            imgUrl: data.shareWxImgUrl, // 分享图标
+            success: function () {
+              //
+            },
+            cancel: function () {
+              // 用户取消分享后执行的回调函数
+            }
+          })
+        })
+      }
+    }
+</code></pre><h1 id="浏览器默认分享"><a href="#浏览器默认分享" class="headerlink" title="浏览器默认分享"></a>浏览器默认分享</h1><ol>
+<li>浏览器默认自带分享不能设置相关描述</li>
+<li>浏览器默认分享标题即页面中的title内容</li>
+<li>浏览器默认分享到微信的缩略图默认是页面中第一张图片大于300*300的图片，图片的设置也需要有一定的技巧方法可参考<a href="https://www.caiyiming.com/article/201702231619.html" target="_blank" rel="external">https://www.caiyiming.com/article/201702231619.html</a><br>原理也同上，在每个需要分享的路由下设置相应内容</li>
+</ol>
+<h1 id="在分享的页面中不要存在caixin同名的js变量名，可能是变量名冲突导致安卓分享实效"><a href="#在分享的页面中不要存在caixin同名的js变量名，可能是变量名冲突导致安卓分享实效" class="headerlink" title="在分享的页面中不要存在caixin同名的js变量名，可能是变量名冲突导致安卓分享实效"></a>在分享的页面中不要存在caixin同名的js变量名，可能是变量名冲突导致安卓分享实效</h1>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/07/21/微信分享/" data-id="cj5deihxy000g8gve9ltjs70x" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/07/21/wap和app页面项目的一些整理/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          wap和app页面项目的一些整理
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/07/10/Collaborative-Web-Development/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Collaborative Web Development</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">七月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">六月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">五月 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/07/21/wap和app页面项目的一些整理/">wap和app页面项目的一些整理</a>
+          </li>
+        
+          <li>
+            <a href="/2017/07/21/微信分享/">微信分享</a>
+          </li>
+        
+          <li>
+            <a href="/2017/07/10/Collaborative-Web-Development/">Collaborative Web Development</a>
+          </li>
+        
+          <li>
+            <a href="/2017/06/29/react-函数/">react-函数</a>
+          </li>
+        
+          <li>
+            <a href="/2017/06/08/research/">research</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 madao<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>
